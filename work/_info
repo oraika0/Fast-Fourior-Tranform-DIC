@@ -9,52 +9,123 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab2_sample/StudentID/file
-vFFT
-!s110 1744788926
+vbutterfly
+Z0 !s110 1744893813
 !i10b 1
-!s100 ?Ze<fzH5XzN<;[hjh9=NC3
-Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I2jeodaj[=mISI9CLEHAl81
-Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file
-w1744788923
-8C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v
-FC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v
-!i122 2
-L0 1 31
-Z3 OV;L;2020.1;71
+!s100 TQ0DQ=aYTz9SYzfOGELZG1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I07F9_i637D[eJ5kXSnI1e2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file
+Z4 w1744893811
+Z5 8C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v
+Z6 FC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v
+!i122 44
+L0 131 32
+Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z4 !s108 1744788926.000000
-!s107 C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v|
+Z8 !s108 1744893813.000000
+Z9 !s107 C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v|
+Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v|
 !i113 1
-o-work work
-Z5 tCvgOpt 0
+Z11 o-work work
+Z12 tCvgOpt 0
+vFFT
+R0
+!i10b 1
+!s100 hze<E_G3AYl4:bcK_971l3
+R1
+IZHTWzeE:l9Gz;67YC5ZM>2
+R2
+R3
+R4
+R5
+R6
+!i122 44
+L0 9 54
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
 n@f@f@t
+vFFT_CORE
+R0
+!i10b 1
+!s100 hk_>o1<2WXo[6?OoL>jkR1
+R1
+Ifz`JCPVO=[EHFT?3:mV:P2
+R2
+R3
+R4
+R5
+R6
+!i122 44
+L0 164 516
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+n@f@f@t_@c@o@r@e
+vS2P
+R0
+!i10b 1
+!s100 <E[^5kLKCl4Ki]5_j_OFM3
+R1
+I`@XeNZ8D4bl=_=7TXU]XV3
+R2
+R3
+R4
+R5
+R6
+!i122 44
+L0 64 66
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+n@s2@p
 vtestfixture
 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-!s110 1744788927
+R0
 !i10b 1
 !s100 07JV:VE^ePEaa^lJnh_nA1
-R0
-IA_Z[IdRIJXhl2VT_6B<JI2
 R1
-S1
+IA_Z[IdRIJXhl2VT_6B<JI2
 R2
+S1
+R3
 w1744781181
 8C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv
 FC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv
-!i122 3
+!i122 45
 L0 6 231
-R3
+R7
 r1
 !s85 0
 31
-R4
+R8
 !s107 C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv|
 !i113 1
 o-work work -sv
-R5
+R12
