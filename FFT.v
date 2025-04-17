@@ -364,11 +364,6 @@ genvar i;
 generate
     for (i = 0; i < 8; i = i + 1) begin : bf_layer
         // four inputs abcd
-        assign lyr_in_a_real[i] = ping_pong_switcher ? buf1_real[i] : buf2_real[i];
-        assign lyr_in_a_imag[i] = ping_pong_switcher ? buf1_imag[i] : buf2_imag[i];
-        assign lyr_in_b_real[i] = ping_pong_switcher ? buf1_real[i] : buf2_real[i];
-        assign lyr_in_b_imag[i] = ping_pong_switcher ? buf1_imag[i] : buf2_imag[i];
-
         butterfly u_bf (
             .a(lyr_in_a_real[i]),
             .b(lyr_in_a_imag[i]),
@@ -385,12 +380,16 @@ generate
         );
     end
 endgenerate
-
+integer j;
 //wire ording logic....
 always @(*) begin
-// .....solving......
-
-
+    // .....solving......
+    for (int j=0; i<8; ++j) begin
+        assign lyr_in_a_real[i] = ping_pong_switcher ? buf1_real[odr_a_idx[i]] : buf2_real[odr_a_idx[i]];
+        assign lyr_in_a_imag[i] = ping_pong_switcher ? buf1_imag[odr_a_idx[i]] : buf2_imag[odr_a_idx[i]];
+        assign lyr_in_b_real[i] = ping_pong_switcher ? buf1_real[odr_b_idx[i]] : buf2_real[odr_b_idx[i]];
+        assign lyr_in_b_imag[i] = ping_pong_switcher ? buf1_imag[odr_b_idx[i]] : buf2_imag[odr_b_idx[i]];    
+    end     
 end 
 
 // === layer wire Writeback into Buffer ===
