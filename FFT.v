@@ -1,3 +1,6 @@
+// 目前情況：in_real[15:0] ok 
+//          buf1_real timing 對到了有寫進去 但是資料數量有問題(只有八筆)
+
 module  FFT(
     input           clk      , 
     input           rst      , 
@@ -103,22 +106,22 @@ end
 FFT_CORE FFT_CORE1(.clk(clk),   
                    .rst(rst),       
                    .buffer_ready(buffer_ready),
-                   .in_real0 (p_out[0 ]),
-                   .in_real1 (p_out[1 ]),
-                   .in_real2 (p_out[2 ]),
-                   .in_real3 (p_out[3 ]),
-                   .in_real4 (p_out[4 ]),
-                   .in_real5 (p_out[5 ]),
-                   .in_real6 (p_out[6 ]),
-                   .in_real7 (p_out[7 ]),
-                   .in_real8 (p_out[8 ]),
-                   .in_real9 (p_out[9 ]),
-                   .in_real10(p_out[10]),
-                   .in_real11(p_out[11]),
-                   .in_real12(p_out[12]),
-                   .in_real13(p_out[13]),
-                   .in_real14(p_out[14]),
-                   .in_real15(p_out[15]),
+                   .in_real0 (p_out_reg[0 ]),
+                   .in_real1 (p_out_reg[1 ]),
+                   .in_real2 (p_out_reg[2 ]),
+                   .in_real3 (p_out_reg[3 ]),
+                   .in_real4 (p_out_reg[4 ]),
+                   .in_real5 (p_out_reg[5 ]),
+                   .in_real6 (p_out_reg[6 ]),
+                   .in_real7 (p_out_reg[7 ]),
+                   .in_real8 (p_out_reg[8 ]),
+                   .in_real9 (p_out_reg[9 ]),
+                   .in_real10(p_out_reg[10]),
+                   .in_real11(p_out_reg[11]),
+                   .in_real12(p_out_reg[12]),
+                   .in_real13(p_out_reg[13]),
+                   .in_real14(p_out_reg[14]),
+                   .in_real15(p_out_reg[15]),
 
                    .in_imag0 (32'd0),
                    .in_imag1 (32'd0),
@@ -272,7 +275,6 @@ module S2P(
 
 integer   i         ;
 reg [3:0] ctr       ;
-reg       delay_flag;
 reg [31:0] buffer[0:15];
 
 always @(posedge clk or posedge rst) begin
@@ -282,8 +284,7 @@ always @(posedge clk or posedge rst) begin
         for (i = 0; i < 16; i = i + 1) buffer[i] <= 32'd0;
 
     end	else if (fir_valid) begin
-		delay_flag   <= (ctr == 4'd15)                 ;
-        buffer_ready <= delay_flag                     ;
+		buffer_ready   <= (ctr == 4'd15)                 ;
         ctr          <= (ctr == 4'd15) ? 4'd0 : ctr + 1; 
         buffer[ctr]  <= {
                          {8{fir_d[15]}}, // sign extension of fir_d
@@ -291,7 +292,6 @@ always @(posedge clk or posedge rst) begin
                          8'd0            // zero padding
         };
     end else begin
-        delay_flag   <= 0;
         buffer_ready <= 0;
     end
 end
@@ -460,7 +460,7 @@ always @(posedge clk or posedge rst) begin
         in_imag [14] <= 32'd04;
         in_imag [15] <= 32'd05;
     
-    end else if (buffer_ready) begin
+    end else begin
         in_real[0 ] <= in_real0 ;
         in_real[1 ] <= in_real1 ;
         in_real[2 ] <= in_real2 ;
@@ -493,7 +493,6 @@ always @(posedge clk or posedge rst) begin
         in_imag [13] = in_imag13;
         in_imag [14] = in_imag14;
         in_imag [15] = in_imag15;
-    end else begin
     end
 end
 
@@ -557,6 +556,8 @@ initial begin
 end
                        
 parameter [2:0] IDLE   = 3'd0,
+                LOAD1   = 3'd5,
+                LOAD2   = 3'd6,
                 STAGE1 = 3'd1,
                 STAGE2 = 3'd2,
                 STAGE3 = 3'd3,
@@ -776,13 +777,11 @@ always @(posedge clk or posedge rst) begin
         ping_pong_switcher <= 1;
     end else begin
         case (curr_state)
-            IDLE : begin
+            IDLE, LOAD1, LOAD2 : begin
                 ping_pong_switcher <= 1;
-                if (buffer_ready) begin
-                    for (o = 0; o < 8; o = o + 1) begin
-                        buf1_real[o] <= in_real[o];
-                        buf1_imag[o] <= in_imag[o];
-                    end
+                for (o = 0; o < 8; o = o + 1) begin
+                    buf1_real[o] <= in_real[o];
+                    buf1_imag[o] <= in_imag[o];
                 end
             end 
             STAGE1, STAGE3 : begin
@@ -850,7 +849,11 @@ end
 always @(*) begin
 	case(curr_state)
 		IDLE   : 
-			next_state = (buffer_ready) ? STAGE1 : IDLE;
+			next_state = (buffer_ready) ? LOAD1 : IDLE;
+        LOAD1  : 
+            next_state = LOAD2;
+        LOAD2   :
+            next_state = STAGE1;
         STAGE1 : 
 			next_state = STAGE2;
 		STAGE2 : 

@@ -1014,3 +1014,257 @@ run -all
 #    Time: 3 ms  Iteration: 0  Instance: /testfixture
 # 1
 # Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+restart
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v failed with 1 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+run -all
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v failed with 1 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v failed with 1 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of FFT.v failed with 1 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
