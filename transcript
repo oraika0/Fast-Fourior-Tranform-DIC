@@ -1,69 +1,1016 @@
-# Compile of FFT.v failed with 1 errors.
+# Compile of FFT.v failed with 2 errors.
 # Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 1 error.
-# Compile of FFT.v failed with 1 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FFT.v failed with 2 errors.
 # Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 1 error.
-# Compile of FFT.v failed with 6 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FFT.v failed with 2 errors.
 # Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of FFT.v failed with 6 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of FFT.v failed with 6 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of FFT.v failed with 7 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 7 errors.
-# Compile of FFT.v failed with 9 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 9 errors.
-# Compile of FFT.v failed with 6 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of FFT.v failed with 6 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of FFT.v failed with 7 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 7 errors.
-# Compile of FFT.v failed with 6 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of FFT.v failed with 5 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 5 errors.
-# Compile of FFT.v failed with 3 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 3 errors.
-# Compile of FFT.v failed with 9 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 9 errors.
-# Compile of FFT.v failed with 11 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 11 errors.
-# Compile of FFT.v failed with 7 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 7 errors.
-# Compile of FFT.v failed with 4 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 4 errors.
-# Compile of FFT.v failed with 8 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 8 errors.
-# Compile of FFT.v failed with 5 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 5 errors.
-# Compile of FFT.v failed with 1 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 1 error.
-# Compile of FFT.v failed with 3 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 3 errors.
-# Compile of FFT.v failed with 1 errors.
-# Compile of testfixture.sv was successful.
-# 2 compiles, 1 failed with 1 error.
+# 2 compiles, 1 failed with 2 errors.
 # Compile of FFT.v was successful.
 # Compile of testfixture.sv was successful.
 # 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.testfixture
+# vsim -gui work.testfixture 
+# Start time: 16:57:25 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real0'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real0'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(355).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real1'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real1'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(356).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real2'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real2'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(357).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real3'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real3'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(358).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real4'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real4'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(359).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real5'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real5'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(360).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real6'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real6'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(361).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real7'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real7'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(362).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real8'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real8'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(363).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real9'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real9'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(364).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real10'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real10'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(365).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real11'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real11'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(366).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real12'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real12'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(367).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real13'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real13'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(368).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real14'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real14'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(369).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real15'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_real15'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(370).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag0'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag0'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(372).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag1'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag1'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(373).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag2'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag2'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(374).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag3'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag3'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(375).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag4'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag4'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(376).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag5'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag5'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(377).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag6'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag6'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(378).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag7'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag7'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(379).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag8'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag8'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(380).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag9'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag9'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(381).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag10'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag10'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(382).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag11'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag11'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(383).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag12'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag12'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(384).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag13'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag13'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(385).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag14'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag14'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(386).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag15'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'out_imag15'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(387).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# Error loading design
+# End time: 16:57:26 on Apr 18,2025, Elapsed time: 0:00:01
+# Errors: 48, Warnings: 38
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.testfixture
+# vsim -gui work.testfixture 
+# Start time: 17:05:53 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real0'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real1'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real2'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real3'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real4'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real5'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real6'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real7'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real8'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real9'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real10'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real11'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real12'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real13'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real14'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_real15'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag0'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag1'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag2'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag3'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag4'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag5'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag6'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag7'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag8'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag9'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag10'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag11'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag12'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag13'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag14'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out_imag15'.
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1 File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 70
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# Error loading design
+# End time: 17:05:53 on Apr 18,2025, Elapsed time: 0:00:00
+# Errors: 48, Warnings: 2
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.testfixture
+# vsim -gui work.testfixture 
+# Start time: 17:13:13 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_real' not found in the connected module (5th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Error: (vsim-3063) Port 'w_imag' not found in the connected module (6th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# Error loading design
+# End time: 17:13:14 on Apr 18,2025, Elapsed time: 0:00:01
+# Errors: 16, Warnings: 2
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.testfixture +notimingchecks
+# vsim -gui work.testfixture "+notimingchecks" 
+# Start time: 17:14:45 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# WARNING: No extended dataflow license exists
+run -all
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+add wave -position insertpoint sim:/testfixture/*
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[0]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[1]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[2]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[3]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[4]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[5]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[6]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_real'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(288).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (3) for port 'W_imag'. The port definition is at: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v(289).
+#    Time: 0 ps  Iteration: 0  Instance: /testfixture/top/FFT_CORE1/bf_layer[7]/u_bf File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 668
+# Load canceled
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui +notimingchecks work.testfixture
+# End time: 17:19:47 on Apr 18,2025, Elapsed time: 0:05:02
+# Errors: 0, Warnings: 18
+# vsim -gui "+notimingchecks" work.testfixture 
+# Start time: 17:19:47 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# WARNING: No extended dataflow license exists
+# A time value could not be extracted from the current line
+add wave -position insertpoint sim:/testfixture/top/S2P1/*
+add wave -position insertpoint sim:/testfixture/top/*
+add wave -position insertpoint sim:/testfixture/top/S2P1/*
+add wave -position insertpoint sim:/testfixture/top/FFT_CORE1/*
+run -all
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+restart
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v failed with 2 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FFT.v failed with 2 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FFT.v failed with 2 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FFT.v failed with 2 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 2 errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+restart
+# Compile of FFT.v failed with 2 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 2 errors.
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Error UndoRedo Capture Transform called but RedoStart or UndoStart has not been called
+# Called on: .main_pane.wave but current window is: .main_pane.wave
+# mode is none
+#  Trace back: 
+#    <7:eval:1: ::Wave::UndoRedoCaptureTransform Delete {.main_pane.dataflow.interior.cs.body.pw.wf.top.tree.tree1 undo delete 1}
+#    >6:eval:1: ::.main_pane.dataflow.interior.cs.body.pw.wf.top.tree insert end sim:/testfixture/top/S2P1/buffer_ready
+#    <5:proc:4: ::vsimwidgets::dfAddDataflowFromWave .main_pane.wave.interior.cs.body.pw.wf.tree {251070 ps} sim:/testfixture/top/S2P1/buffer_ready 1
+#    <4:C:/mtitcl/vsim/dataflow.tc_:-1: ::Wave::_showDFReadersDrivers drivers .main_pane.wave.interior.cs.body.pw.wf 1
+#    <3:C:/mtitcl/vsim/wave.tc_:3477: ::Wave::ShowDFDrivers .main_pane.wave.interior.cs.body.pw.wf 1
+#    <2:eval:1: ::Wave::1Up .main_pane.wave.interior.cs.body.pw.wf.grid.row0,wave.data 774 222
+#    <1:C:/mtitcl/vsim/wave.tc_:3432: ::Wave::SelectUp .main_pane.wave.interior.cs.body.pw.wf.grid.row0,wave.data 774 222 1114 406
+add wave -position insertpoint  \
+sim:/testfixture/top/p_out
+# Error - UndoAdd called without an UndoStart
+# Error - UndoAdd called without an UndoStart
+# Error - UndoAdd called without an UndoStart
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v failed with 5 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 5 errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.S2P
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v failed with 5 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 5 errors.
+# Compile of FFT.v failed with 5 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 5 errors.
+# Compile of FFT.v failed with 4 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 4 errors.
+# Compile of FFT.v failed with 3 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of FFT.v failed with 3 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of FFT.v failed with 3 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of FFT.v failed with 2 errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui +notimingchecks work.testfixture
+# End time: 18:52:56 on Apr 18,2025, Elapsed time: 1:33:09
+# Errors: 0, Warnings: 10
+# vsim -gui "+notimingchecks" work.testfixture 
+# Start time: 18:52:56 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/testfixture/top/*
+add wave -position insertpoint sim:/testfixture/top/S2P1/*
+add wave -position insertpoint sim:/testfixture/top/FFT_CORE1/*
+add wave -position insertpoint  \
+sim:/testfixture/top/p_out_reg
+run -all
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# Warning in wave window restart: (vish-4014) No objects found matching '/testfixture/top/p_out_reg'. 
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/odr_a_idx
+view -new wave
+# -new not supported on PE
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/odr_b_idx
+restart
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/buf1_real
+view -new wave
+# -new not supported on PE
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/buf1_imag
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/buf2_real
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/buf2_imag
+restart
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[8] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[8] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[8] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[8] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[9] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[9] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[9] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[9] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[10] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[10] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[10] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[10] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[11] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[11] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[11] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[11] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[12] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[12] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[12] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[12] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[13] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[13] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[13] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[13] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[14] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[14] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[14] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[14] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[15] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 740
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[15] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 741
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[15] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 742
+# ** Error (suppressible): (vsim-3356) Index into 'net' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Region: /testfixture/top/FFT_CORE1/input_mux[15] File: C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/FFT.v Line: 743
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Load canceled
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui +notimingchecks work.testfixture
+# vsim -gui "+notimingchecks" work.testfixture 
+# Start time: 18:52:56 on Apr 18,2025
+# Loading sv_std.std
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/in_real
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/in_imag
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/out_real
+add wave -position insertpoint  \
+sim:/testfixture/top/FFT_CORE1/out_imag
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+restart
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+# Warning in wave window restart: (vish-4014) No objects found matching '/testfixture/top/S2P1/delay_flag'. 
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+add wave -position insertpoint  \
+sim:/testfixture/top/p_out_reg
+restart
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+restart
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+run -all
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of FFT.v was successful.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of FFT.v was successful.
+# Compile of testfixture.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testfixture
+# Loading work.FFT
+# Loading work.S2P
+# Loading work.FFT_CORE
+# Loading work.butterfly
+run -all
+# GetModuleFileName: тぃ﹚家舱
+# 
+# 
+# -----------------------------------------------------
+# Error!!! Somethings' wrong with your code ...!!
+# -------------------------FAIL------------------------
+# -----------------------------------------------------
+# ** Note: $finish    : C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv(179)
+#    Time: 3 ms  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv line 179
