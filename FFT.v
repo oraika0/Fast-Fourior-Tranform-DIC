@@ -39,6 +39,8 @@ wire [15:0] fft_out_imag [0:15];   //fft output
 reg fft_out_flag; // 0 = real, 1 = imag
 reg [15:0] fft_d [0:15]; 
 reg fft_valid_reg; // 0 = real, 1 = imag
+reg fft_out_ready_d1;
+reg fft_out_ready_d2;
 
 
 S2P S2P1(.clk(clk)                  ,
@@ -176,13 +178,24 @@ FFT_CORE FFT_CORE1(.clk(clk),
                    .done(fft_out_ready)                   
                   );
 
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        fft_out_ready_d1 <= 0;
+        fft_out_ready_d2 <= 0;
+    end else begin
+        fft_out_ready_d1 <= fft_out_ready;
+        fft_out_ready_d2 <= fft_out_ready_d1;
+    end
+end
 
 // === Output Logic ===
 always @(posedge clk or posedge rst) begin
     if (rst) begin
         fft_out_flag <= 0;
         fft_valid_reg <= 0;
-    end else if (fft_out_ready) begin
+        fft_out_ready_d1 <= 0;
+        fft_out_ready_d2 <= 0;
+    end else if (fft_out_ready | fft_out_ready_d1) begin
         fft_valid_reg <= 1;
         if (!fft_out_flag) begin
             // output real
@@ -227,7 +240,7 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
-assign fft_valid = fft_valid_reg;
+assign fft_valid = fft_out_ready_d2 | fft_out_ready_d1;
 assign fft_d0 = fft_d[0];
 assign fft_d1 = fft_d[1];
 assign fft_d2 = fft_d[2];
@@ -246,8 +259,44 @@ assign fft_d14 = fft_d[14];
 assign fft_d15 = fft_d[15];
 
 
-//  done not done yet
-//  assign done = (!fir_valid && fft_out_ready)
+//  done logic
+
+//  scanning negedge of fir_valid and fft_valid
+reg fir_shadow;
+always @(posedge clk) begin
+    fir_shadow <= fir_valid;
+end
+wire in_end =  fir_shadow & ~fir_valid;   
+
+reg fft_shadow;
+always @(posedge clk) begin
+     fft_shadow <= fft_valid;
+end
+wire out_end =  fft_shadow & ~fft_valid;
+
+reg wait_drain;   // fir are all sent , waiting for fft to finish
+reg done_r;       // fft sent the last data out
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        wait_drain <= 1'b0;
+        done_r     <= 1'b0;
+    end
+    else begin
+        if (in_end) begin          
+            wait_drain <= 1'b1;
+        end
+        
+        if (wait_drain && out_end) begin  // fir all sent + fft all sent
+            done_r     <= 1'b1;   
+            wait_drain <= 1'b0;   
+        end
+        else
+            done_r <= 1'b0;
+    end
+end
+
+assign done = done_r;
 
 endmodule
 
@@ -860,8 +909,8 @@ assign out_imag2  = buf1_imag[4 ][23:8];
 assign out_imag10 = buf1_imag[5 ][23:8];
 assign out_imag6  = buf1_imag[6 ][23:8];
 assign out_imag14 = buf1_imag[7 ][23:8];
-assign out_imag1  = buf1_imag[9 ][23:8];
-assign out_imag9  = buf1_imag[8 ][23:8];
+assign out_imag1  = buf1_imag[8 ][23:8];
+assign out_imag9  = buf1_imag[9 ][23:8];
 assign out_imag5  = buf1_imag[10][23:8];
 assign out_imag13 = buf1_imag[11][23:8];
 assign out_imag3  = buf1_imag[12][23:8];
