@@ -1,6 +1,3 @@
-// 目前情況：in_real[15:0] ok 
-//          buf1_real timing 對到了有寫進去 但是資料數量有問題(只有八筆)
-
 module  FFT(
     input           clk      , 
     input           rst      , 
@@ -30,17 +27,17 @@ module  FFT(
 // Please write your code here //
 /////////////////////////////////
 
-wire [31:0] p_out [0:15]; //parallel output of S2P
-reg [31:0] p_out_reg [0:15];
-wire buffer_ready;        //parallel ready signal
-wire fft_out_ready;
-wire [15:0] fft_out_real [0:15];   //fft output
-wire [15:0] fft_out_imag [0:15];   //fft output
-reg fft_out_flag; // 0 = real, 1 = imag
-reg [15:0] fft_d [0:15]; 
-reg fft_valid_reg; // 0 = real, 1 = imag
-reg fft_out_ready_d1;
-reg fft_out_ready_d2;
+wire [31:0] p_out         [0:15];   //parallel output of S2P
+reg  [31:0] p_out_reg     [0:15];
+wire        buffer_ready;           //parallel ready signal
+wire        fft_out_ready;
+wire [15:0] fft_out_real [0:15];    //fft output
+wire [15:0] fft_out_imag [0:15];    //fft output
+reg         fft_out_flag;           // 0 = real, 1 = imag
+reg  [15:0] fft_d        [0:15]; 
+reg         fft_valid_reg;          // 0 = real, 1 = imag
+reg         fft_out_ready_d1;
+reg         fft_out_ready_d2;
 
 
 S2P S2P1(.clk(clk)                  ,
@@ -241,16 +238,16 @@ always @(posedge clk or posedge rst) begin
 end
 
 assign fft_valid = fft_out_ready_d2 | fft_out_ready_d1;
-assign fft_d0 = fft_d[0];
-assign fft_d1 = fft_d[1];
-assign fft_d2 = fft_d[2];
-assign fft_d3 = fft_d[3];
-assign fft_d4 = fft_d[4];
-assign fft_d5 = fft_d[5];
-assign fft_d6 = fft_d[6];
-assign fft_d7 = fft_d[7];
-assign fft_d8 = fft_d[8];
-assign fft_d9 = fft_d[9];
+assign fft_d0  = fft_d[0];
+assign fft_d1  = fft_d[1];
+assign fft_d2  = fft_d[2];
+assign fft_d3  = fft_d[3];
+assign fft_d4  = fft_d[4];
+assign fft_d5  = fft_d[5];
+assign fft_d6  = fft_d[6];
+assign fft_d7  = fft_d[7];
+assign fft_d8  = fft_d[8];
+assign fft_d9  = fft_d[9];
 assign fft_d10 = fft_d[10];
 assign fft_d11 = fft_d[11];
 assign fft_d12 = fft_d[12];
@@ -260,13 +257,12 @@ assign fft_d15 = fft_d[15];
 
 
 //  done logic
-
 //  scanning negedge of fir_valid and fft_valid
 reg fir_shadow;
 always @(posedge clk) begin
     fir_shadow <= fir_valid;
 end
-wire in_end =  fir_shadow & ~fir_valid;   
+wire in_end = fir_shadow & ~fir_valid;   
 
 reg fft_shadow;
 always @(posedge clk) begin
@@ -558,14 +554,6 @@ initial begin
     w_real[5] = 32'shFFFF9E09;
     w_real[6] = 32'shFFFF4AFC;
     w_real[7] = 32'shFFFF137D;
-    // w_real[0] = 32'sh10000;
-    // w_real[1] = 32'sh10000;
-    // w_real[2] = 32'sh10000;
-    // w_real[3] = 32'sh10000;
-    // w_real[4] = 32'sh10000;
-    // w_real[5] = 32'sh10000;
-    // w_real[6] = 32'sh10000;
-    // w_real[7] = 32'sh10000;
 end
 
 reg signed [31:0] w_imag [0:7];
@@ -579,14 +567,6 @@ initial begin
     w_imag[5] = 32'shFFFF137D;
     w_imag[6] = 32'shFFFF4AFC;
     w_imag[7] = 32'shFFFF9E09;
-    // w_imag[0] = 32'sh10000;
-    // w_imag[1] = 32'sh10000;
-    // w_imag[2] = 32'sh10000;
-    // w_imag[3] = 32'sh10000;
-    // w_imag[4] = 32'sh10000;
-    // w_imag[5] = 32'sh10000;
-    // w_imag[6] = 32'sh10000;
-    // w_imag[7] = 32'sh10000;
 end
                        
 parameter [2:0] IDLE   = 3'd0,
@@ -789,8 +769,9 @@ generate
         );
     end
 endgenerate
-//  wire ording logic....
- 
+
+
+//  wire ording logic.... 
  //  correct assign 
  //  u_bf1 : 0 0 8 8 
  //  u_bf2 : 1 1 9 9 
@@ -852,39 +833,6 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
-
-// assign out_real0  = buf1_real[0 ][23:8];
-// assign out_real1  = buf1_real[1 ][23:8];
-// assign out_real2  = buf1_real[2 ][23:8];
-// assign out_real3  = buf1_real[3 ][23:8];
-// assign out_real4  = buf1_real[4 ][23:8];
-// assign out_real5  = buf1_real[5 ][23:8];
-// assign out_real6  = buf1_real[6 ][23:8];
-// assign out_real7  = buf1_real[7 ][23:8];
-// assign out_real8  = buf1_real[8 ][23:8];
-// assign out_real9  = buf1_real[9 ][23:8];
-// assign out_real10 = buf1_real[10][23:8];
-// assign out_real11 = buf1_real[11][23:8];
-// assign out_real12 = buf1_real[12][23:8];
-// assign out_real13 = buf1_real[13][23:8];
-// assign out_real14 = buf1_real[14][23:8];
-// assign out_real15 = buf1_real[15][23:8];
-// assign out_imag0  = buf1_imag[0 ][23:8];
-// assign out_imag1  = buf1_imag[1 ][23:8];
-// assign out_imag2  = buf1_imag[2 ][23:8];
-// assign out_imag3  = buf1_imag[3 ][23:8];
-// assign out_imag4  = buf1_imag[4 ][23:8];
-// assign out_imag5  = buf1_imag[5 ][23:8];
-// assign out_imag6  = buf1_imag[6 ][23:8];
-// assign out_imag7  = buf1_imag[7 ][23:8];
-// assign out_imag8  = buf1_imag[9 ][23:8];
-// assign out_imag9  = buf1_imag[8 ][23:8];
-// assign out_imag10 = buf1_imag[10][23:8];
-// assign out_imag11 = buf1_imag[11][23:8];
-// assign out_imag12 = buf1_imag[12][23:8];
-// assign out_imag13 = buf1_imag[13][23:8];
-// assign out_imag14 = buf1_imag[14][23:8];
-// assign out_imag15 = buf1_imag[15][23:8];
 assign out_real0  = buf1_real[0 ][23:8];
 assign out_real8  = buf1_real[1 ][23:8];
 assign out_real4  = buf1_real[2 ][23:8];
@@ -917,8 +865,6 @@ assign out_imag3  = buf1_imag[12][23:8];
 assign out_imag11 = buf1_imag[13][23:8];
 assign out_imag7  = buf1_imag[14][23:8];
 assign out_imag15 = buf1_imag[15][23:8];
-
-
 
 // FSM Next stage logic
 always @(*) begin
