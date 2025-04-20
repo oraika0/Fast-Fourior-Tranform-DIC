@@ -10,23 +10,23 @@ z2
 cModel Technology
 dC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab2_sample/StudentID/file
 vbutterfly
-Z0 !s110 1745131429
+Z0 !s110 1745133864
 !i10b 1
-!s100 7K6B5nd5:RgKkL4c8neCA0
+!s100 26kHUiz8J7c0ZLP?V;k;i2
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I4a<5bNG2]l@aVLaSa;OZZ1
+I;]IR;L8]n^2CZ6A4YB;^@3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file
-Z4 w1745131424
+Z4 w1745133862
 Z5 8C:\Users\kai91\NCKU\course\master1semester2\DIC\labs\Lab3\StudentID\file\FFT.v
 Z6 FC:\Users\kai91\NCKU\course\master1semester2\DIC\labs\Lab3\StudentID\file\FFT.v
-!i122 270
-L0 316 34
+!i122 290
+L0 318 34
 Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1745131429.000000
+Z8 !s108 1745133864.000000
 Z9 !s107 C:\Users\kai91\NCKU\course\master1semester2\DIC\labs\Lab3\StudentID\file\FFT.v|
 Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:\Users\kai91\NCKU\course\master1semester2\DIC\labs\Lab3\StudentID\file\FFT.v|
 !i113 1
@@ -35,16 +35,16 @@ Z12 tCvgOpt 0
 vFFT
 R0
 !i10b 1
-!s100 G2[S:9k>KlU`JBC81fYZe1
+!s100 jaBXlDbh8gYN@omJMdUBW2
 R1
-I^?Q]bMbX]D7[;G6Z<km<K2
+IbobF4nB?I@dYVTVk^8oYJ2
 R2
 R3
 R4
 R5
 R6
-!i122 270
-L0 4 247
+!i122 290
+L0 4 249
 R7
 r1
 !s85 0
@@ -59,16 +59,16 @@ n@f@f@t
 vFFT_CORE
 R0
 !i10b 1
-!s100 3V<]17TXZWE`XWfV1hSUc0
+!s100 Yc9dRmjRA67GNXHA[:Xc?0
 R1
-I_61YZYG5MPF?g]?^63?:K3
+I=1fBKQ_UzDAhG1SddBGi:3
 R2
 R3
 R4
 R5
 R6
-!i122 270
-L0 351 554
+!i122 290
+L0 353 553
 R7
 r1
 !s85 0
@@ -83,16 +83,16 @@ n@f@f@t_@c@o@r@e
 vS2P
 R0
 !i10b 1
-!s100 a=fh0gm]2D0EaCnj0^bA72
+!s100 2H=CL?N=Y<a9KHGTAjIM;1
 R1
-I]VdSX:W>Hjanc6Ze^jA=I0
+IK^Y>R0YkJRcjL>8W:fi[o3
 R2
 R3
 R4
 R5
 R6
-!i122 270
-L0 252 63
+!i122 290
+L0 254 63
 R7
 r1
 !s85 0
@@ -117,7 +117,7 @@ R3
 w1744781181
 8C:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv
 FC:/Users/kai91/NCKU/course/master1semester2/DIC/labs/Lab3/StudentID/file/testfixture.sv
-!i122 271
+!i122 291
 L0 6 231
 R7
 r1

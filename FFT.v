@@ -246,6 +246,8 @@ assign fft_d14 = fft_d[14];
 assign fft_d15 = fft_d[15];
 
 
+//  done not done yet
+//  assign done = (!fir_valid && fft_out_ready)
 
 endmodule
 
@@ -424,8 +426,6 @@ module FFT_CORE(
 );
 reg [31:0] in_real [0:15];
 reg [31:0] in_imag [0:15];
-reg [31:0] out_real [0:15];
-reg [31:0] out_imag [0:15];
 
 always @(posedge clk or posedge rst) begin
     if (rst) begin
@@ -497,39 +497,6 @@ always @(posedge clk or posedge rst) begin
         in_imag [15] = in_imag15;
     end
 end
-
-assign out_real0  = out_real[0 ][23:8];
-assign out_real1  = out_real[1 ][23:8];
-assign out_real2  = out_real[2 ][23:8];
-assign out_real3  = out_real[3 ][23:8];
-assign out_real4  = out_real[4 ][23:8];
-assign out_real5  = out_real[5 ][23:8];
-assign out_real6  = out_real[6 ][23:8];
-assign out_real7  = out_real[7 ][23:8];
-assign out_real8  = out_real[8 ][23:8];
-assign out_real9  = out_real[9 ][23:8];
-assign out_real10 = out_real[10][23:8];
-assign out_real11 = out_real[11][23:8];
-assign out_real12 = out_real[12][23:8];
-assign out_real13 = out_real[13][23:8];
-assign out_real14 = out_real[14][23:8];
-assign out_real15 = out_real[15][23:8];
-assign out_imag0  = out_imag[0 ][23:8];
-assign out_imag1  = out_imag[1 ][23:8];
-assign out_imag2  = out_imag[2 ][23:8];
-assign out_imag3  = out_imag[3 ][23:8];
-assign out_imag4  = out_imag[4 ][23:8];
-assign out_imag5  = out_imag[5 ][23:8];
-assign out_imag6  = out_imag[6 ][23:8];
-assign out_imag7  = out_imag[7 ][23:8];
-assign out_imag8  = out_imag[8 ][23:8];
-assign out_imag9  = out_imag[9 ][23:8];
-assign out_imag10 = out_imag[10][23:8];
-assign out_imag11 = out_imag[11][23:8];
-assign out_imag12 = out_imag[12][23:8];
-assign out_imag13 = out_imag[13][23:8];
-assign out_imag14 = out_imag[14][23:8];
-assign out_imag15 = out_imag[15][23:8];
 
 // === Twiddle Factor ===
 reg signed [31:0] w_real [0:7];
@@ -836,38 +803,72 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
-assign out_real[0 ] = ping_pong_switcher ? buf2_real[0 ] : buf1_real[0 ];
-assign out_imag[0 ] = ping_pong_switcher ? buf2_imag[0 ] : buf1_imag[0 ];
-assign out_real[1 ] = ping_pong_switcher ? buf2_real[1 ] : buf1_real[1 ];
-assign out_imag[1 ] = ping_pong_switcher ? buf2_imag[1 ] : buf1_imag[1 ];
-assign out_real[2 ] = ping_pong_switcher ? buf2_real[2 ] : buf1_real[2 ];
-assign out_imag[2 ] = ping_pong_switcher ? buf2_imag[2 ] : buf1_imag[2 ];
-assign out_real[3 ] = ping_pong_switcher ? buf2_real[3 ] : buf1_real[3 ];
-assign out_imag[3 ] = ping_pong_switcher ? buf2_imag[3 ] : buf1_imag[3 ];
-assign out_real[4 ] = ping_pong_switcher ? buf2_real[4 ] : buf1_real[4 ];
-assign out_imag[4 ] = ping_pong_switcher ? buf2_imag[4 ] : buf1_imag[4 ];
-assign out_real[5 ] = ping_pong_switcher ? buf2_real[5 ] : buf1_real[5 ];
-assign out_imag[5 ] = ping_pong_switcher ? buf2_imag[5 ] : buf1_imag[5 ];
-assign out_real[6 ] = ping_pong_switcher ? buf2_real[6 ] : buf1_real[6 ];
-assign out_imag[6 ] = ping_pong_switcher ? buf2_imag[6 ] : buf1_imag[6 ];
-assign out_real[7 ] = ping_pong_switcher ? buf2_real[7 ] : buf1_real[7 ];
-assign out_imag[7 ] = ping_pong_switcher ? buf2_imag[7 ] : buf1_imag[7 ];
-assign out_real[8 ] = ping_pong_switcher ? buf2_real[8 ] : buf1_real[8 ];
-assign out_imag[8 ] = ping_pong_switcher ? buf2_imag[8 ] : buf1_imag[8 ];
-assign out_real[9 ] = ping_pong_switcher ? buf2_real[9 ] : buf1_real[9 ];
-assign out_imag[9 ] = ping_pong_switcher ? buf2_imag[9 ] : buf1_imag[9 ];
-assign out_real[10] = ping_pong_switcher ? buf2_real[10] : buf1_real[10];
-assign out_imag[10] = ping_pong_switcher ? buf2_imag[10] : buf1_imag[10];
-assign out_real[11] = ping_pong_switcher ? buf2_real[11] : buf1_real[11];
-assign out_imag[11] = ping_pong_switcher ? buf2_imag[11] : buf1_imag[11];
-assign out_real[12] = ping_pong_switcher ? buf2_real[12] : buf1_real[12];
-assign out_imag[12] = ping_pong_switcher ? buf2_imag[12] : buf1_imag[12];
-assign out_real[13] = ping_pong_switcher ? buf2_real[13] : buf1_real[13];
-assign out_imag[13] = ping_pong_switcher ? buf2_imag[13] : buf1_imag[13];
-assign out_real[14] = ping_pong_switcher ? buf2_real[14] : buf1_real[14];
-assign out_imag[14] = ping_pong_switcher ? buf2_imag[14] : buf1_imag[14];
-assign out_real[15] = ping_pong_switcher ? buf2_real[15] : buf1_real[15];
-assign out_imag[15] = ping_pong_switcher ? buf2_imag[15] : buf1_imag[15];
+
+// assign out_real0  = buf1_real[0 ][23:8];
+// assign out_real1  = buf1_real[1 ][23:8];
+// assign out_real2  = buf1_real[2 ][23:8];
+// assign out_real3  = buf1_real[3 ][23:8];
+// assign out_real4  = buf1_real[4 ][23:8];
+// assign out_real5  = buf1_real[5 ][23:8];
+// assign out_real6  = buf1_real[6 ][23:8];
+// assign out_real7  = buf1_real[7 ][23:8];
+// assign out_real8  = buf1_real[8 ][23:8];
+// assign out_real9  = buf1_real[9 ][23:8];
+// assign out_real10 = buf1_real[10][23:8];
+// assign out_real11 = buf1_real[11][23:8];
+// assign out_real12 = buf1_real[12][23:8];
+// assign out_real13 = buf1_real[13][23:8];
+// assign out_real14 = buf1_real[14][23:8];
+// assign out_real15 = buf1_real[15][23:8];
+// assign out_imag0  = buf1_imag[0 ][23:8];
+// assign out_imag1  = buf1_imag[1 ][23:8];
+// assign out_imag2  = buf1_imag[2 ][23:8];
+// assign out_imag3  = buf1_imag[3 ][23:8];
+// assign out_imag4  = buf1_imag[4 ][23:8];
+// assign out_imag5  = buf1_imag[5 ][23:8];
+// assign out_imag6  = buf1_imag[6 ][23:8];
+// assign out_imag7  = buf1_imag[7 ][23:8];
+// assign out_imag8  = buf1_imag[9 ][23:8];
+// assign out_imag9  = buf1_imag[8 ][23:8];
+// assign out_imag10 = buf1_imag[10][23:8];
+// assign out_imag11 = buf1_imag[11][23:8];
+// assign out_imag12 = buf1_imag[12][23:8];
+// assign out_imag13 = buf1_imag[13][23:8];
+// assign out_imag14 = buf1_imag[14][23:8];
+// assign out_imag15 = buf1_imag[15][23:8];
+assign out_real0  = buf1_real[0 ][23:8];
+assign out_real8  = buf1_real[1 ][23:8];
+assign out_real4  = buf1_real[2 ][23:8];
+assign out_real12 = buf1_real[3 ][23:8];
+assign out_real2  = buf1_real[4 ][23:8];
+assign out_real10 = buf1_real[5 ][23:8];
+assign out_real6  = buf1_real[6 ][23:8];
+assign out_real14 = buf1_real[7 ][23:8];
+assign out_real1  = buf1_real[8 ][23:8];
+assign out_real9  = buf1_real[9 ][23:8];
+assign out_real5  = buf1_real[10][23:8];
+assign out_real13 = buf1_real[11][23:8];
+assign out_real3  = buf1_real[12][23:8];
+assign out_real11 = buf1_real[13][23:8];
+assign out_real7  = buf1_real[14][23:8];
+assign out_real15 = buf1_real[15][23:8];
+assign out_imag0  = buf1_imag[0 ][23:8];
+assign out_imag8  = buf1_imag[1 ][23:8];
+assign out_imag4  = buf1_imag[2 ][23:8];
+assign out_imag12 = buf1_imag[3 ][23:8];
+assign out_imag2  = buf1_imag[4 ][23:8];
+assign out_imag10 = buf1_imag[5 ][23:8];
+assign out_imag6  = buf1_imag[6 ][23:8];
+assign out_imag14 = buf1_imag[7 ][23:8];
+assign out_imag1  = buf1_imag[9 ][23:8];
+assign out_imag9  = buf1_imag[8 ][23:8];
+assign out_imag5  = buf1_imag[10][23:8];
+assign out_imag13 = buf1_imag[11][23:8];
+assign out_imag3  = buf1_imag[12][23:8];
+assign out_imag11 = buf1_imag[13][23:8];
+assign out_imag7  = buf1_imag[14][23:8];
+assign out_imag15 = buf1_imag[15][23:8];
+
 
 
 // FSM Next stage logic
