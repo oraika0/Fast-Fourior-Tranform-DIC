@@ -442,11 +442,9 @@ parameter [2:0] IDLE   = 3'd0,
                 STAGE4 = 3'd4,
                 DONE   = 3'd7;
 
-parameter integer DATA_WIDTH = 18;
-
 reg [2:0] curr_state, next_state;
-reg [DATA_WIDTH-1 :0] buf1_real[0:15], buf1_imag[0:15];
-reg [DATA_WIDTH-1 :0] buf2_real[0:15], buf2_imag[0:15];
+reg [17 :0] buf1_real[0:15], buf1_imag[0:15];
+reg [17 :0] buf2_real[0:15], buf2_imag[0:15];
 
 // Wire based on curr_state
 assign done = (curr_state == DONE) ? 1'b1 : 1'b0;
@@ -454,6 +452,9 @@ assign done = (curr_state == DONE) ? 1'b1 : 1'b0;
 reg ping_pong_switcher;  //using lyr_a => 1
 // === Index Pair & Twiddle Index Lookup ===
 // fft layer order index
+
+
+
 reg [3:0] odr_a_idx[0:7], odr_b_idx[0:7];
 reg [2:0] twiddle_idx[0:7];
 
@@ -604,14 +605,14 @@ always@(*)begin
 end
 
 // === Butterfly Wiring Out for Wiring Outside ===
-wire signed [DATA_WIDTH-1 :0] lyr_in_a_real [0:7],
+wire signed [17 :0] lyr_in_a_real [0:7],
                             lyr_in_a_imag [0:7];
-wire signed [DATA_WIDTH-1 :0] lyr_in_b_real [0:7],
+wire signed [17 :0] lyr_in_b_real [0:7],
                               lyr_in_b_imag [0:7];
 
-wire signed [DATA_WIDTH-1 :0] lyr_out_a_real[0:7],
+wire signed [17 :0] lyr_out_a_real[0:7],
                               lyr_out_a_imag[0:7];
-wire signed [DATA_WIDTH-1 :0] lyr_out_b_real[0:7],
+wire signed [17 :0] lyr_out_b_real[0:7],
                               lyr_out_b_imag[0:7];
 
 genvar i;
@@ -692,38 +693,6 @@ always @(posedge clk or posedge rst) begin
                 buf1_imag [13] <= 18'd0;
                 buf1_imag [14] <= 18'd0;
                 buf1_imag [15] <= 18'd0;
-                // buf1_real [0 ] <= {{8{in_real0 [15]}}, in_real0 , 8'b0};
-                // buf1_real [1 ] <= {{8{in_real1 [15]}}, in_real1 , 8'b0};
-                // buf1_real [2 ] <= {{8{in_real2 [15]}}, in_real2 , 8'b0};
-                // buf1_real [3 ] <= {{8{in_real3 [15]}}, in_real3 , 8'b0};
-                // buf1_real [4 ] <= {{8{in_real4 [15]}}, in_real4 , 8'b0};
-                // buf1_real [5 ] <= {{8{in_real5 [15]}}, in_real5 , 8'b0};
-                // buf1_real [6 ] <= {{8{in_real6 [15]}}, in_real6 , 8'b0};
-                // buf1_real [7 ] <= {{8{in_real7 [15]}}, in_real7 , 8'b0};
-                // buf1_real [8 ] <= {{8{in_real8 [15]}}, in_real8 , 8'b0};
-                // buf1_real [9 ] <= {{8{in_real9 [15]}}, in_real9 , 8'b0};
-                // buf1_real [10] <= {{8{in_real10[15]}}, in_real10, 8'b0};
-                // buf1_real [11] <= {{8{in_real11[15]}}, in_real11, 8'b0};
-                // buf1_real [12] <= {{8{in_real12[15]}}, in_real12, 8'b0};
-                // buf1_real [13] <= {{8{in_real13[15]}}, in_real13, 8'b0};
-                // buf1_real [14] <= {{8{in_real14[15]}}, in_real14, 8'b0};
-                // buf1_real [15] <= {{8{in_real15[15]}}, in_real15, 8'b0};
-                // buf1_imag [0 ] <= 32'd0;
-                // buf1_imag [1 ] <= 32'd0;
-                // buf1_imag [2 ] <= 32'd0;
-                // buf1_imag [3 ] <= 32'd0;
-                // buf1_imag [4 ] <= 32'd0;
-                // buf1_imag [5 ] <= 32'd0;
-                // buf1_imag [6 ] <= 32'd0;
-                // buf1_imag [7 ] <= 32'd0;
-                // buf1_imag [8 ] <= 32'd0;
-                // buf1_imag [9 ] <= 32'd0;
-                // buf1_imag [10] <= 32'd0;
-                // buf1_imag [11] <= 32'd0;
-                // buf1_imag [12] <= 32'd0;
-                // buf1_imag [13] <= 32'd0;
-                // buf1_imag [14] <= 32'd0;
-                // buf1_imag [15] <= 32'd0;
                 for (o = 0; o < 16; o = o + 1) begin
                     buf2_real[o] <= 32'd0;
                     buf2_imag[o] <= 32'd0;
