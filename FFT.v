@@ -429,6 +429,79 @@ module FFT_CORE(
     output        done          
 );
 
+reg [31:0] in_real [0:15];
+reg [31:0] in_imag [0:15];
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        in_real [0 ] <= 32'd0;
+        in_real [1 ] <= 32'd0;
+        in_real [2 ] <= 32'd0;
+        in_real [3 ] <= 32'd0;
+        in_real [4 ] <= 32'd0;
+        in_real [5 ] <= 32'd0;
+        in_real [6 ] <= 32'd0;
+        in_real [7 ] <= 32'd0;
+        in_real [8 ] <= 32'd0;
+        in_real [9 ] <= 32'd0;
+        in_real [10] <= 32'd0;
+        in_real [11] <= 32'd0;
+        in_real [12] <= 32'd0;
+        in_real [13] <= 32'd0;
+        in_real [14] <= 32'd0;
+        in_real [15] <= 32'd0;
+        in_imag [0 ] <= 32'd0;
+        in_imag [1 ] <= 32'd0;
+        in_imag [2 ] <= 32'd0;
+        in_imag [3 ] <= 32'd0;
+        in_imag [4 ] <= 32'd0;
+        in_imag [5 ] <= 32'd0;
+        in_imag [6 ] <= 32'd0;
+        in_imag [7 ] <= 32'd0;
+        in_imag [8 ] <= 32'd0;
+        in_imag [9 ] <= 32'd0;
+        in_imag [10] <= 32'd0;
+        in_imag [11] <= 32'd0;
+        in_imag [12] <= 32'd0;
+        in_imag [13] <= 32'd0;
+        in_imag [14] <= 32'd0;
+        in_imag [15] <= 32'd0;
+    
+    end else begin
+        in_real [0 ] <= in_real0 ;
+        in_real [1 ] <= in_real1 ;
+        in_real [2 ] <= in_real2 ;
+        in_real [3 ] <= in_real3 ;
+        in_real [4 ] <= in_real4 ;
+        in_real [5 ] <= in_real5 ;
+        in_real [6 ] <= in_real6 ;
+        in_real [7 ] <= in_real7 ;
+        in_real [8 ] <= in_real8 ;
+        in_real [9 ] <= in_real9 ;
+        in_real [10] <= in_real10;
+        in_real [11] <= in_real11;
+        in_real [12] <= in_real12;
+        in_real [13] <= in_real13;
+        in_real [14] <= in_real14;
+        in_real [15] <= in_real15;
+        in_imag [0 ] <= in_imag0 ;
+        in_imag [1 ] <= in_imag1 ;
+        in_imag [2 ] <= in_imag2 ;
+        in_imag [3 ] <= in_imag3 ;
+        in_imag [4 ] <= in_imag4 ;
+        in_imag [5 ] <= in_imag5 ;
+        in_imag [6 ] <= in_imag6 ;
+        in_imag [7 ] <= in_imag7 ;
+        in_imag [8 ] <= in_imag8 ;
+        in_imag [9 ] <= in_imag9 ;
+        in_imag [10] <= in_imag10;
+        in_imag [11] <= in_imag11;
+        in_imag [12] <= in_imag12;
+        in_imag [13] <= in_imag13;
+        in_imag [14] <= in_imag14;
+        in_imag [15] <= in_imag15;
+    end
+end
 
 // === Twiddle Factor ===
 reg signed [31:0] w_real [0:7];
@@ -695,39 +768,9 @@ always @(posedge clk or posedge rst) begin
             end 
             LOAD : begin
                 ping_pong_switcher <= 1;
-                buf_real [0 ] <= in_real0 ;
-                buf_real [1 ] <= in_real1 ;
-                buf_real [2 ] <= in_real2 ;
-                buf_real [3 ] <= in_real3 ;
-                buf_real [4 ] <= in_real4 ;
-                buf_real [5 ] <= in_real5 ;
-                buf_real [6 ] <= in_real6 ;
-                buf_real [7 ] <= in_real7 ;
-                buf_real [8 ] <= in_real8 ;
-                buf_real [9 ] <= in_real9 ;
-                buf_real [10] <= in_real10;
-                buf_real [11] <= in_real11;
-                buf_real [12] <= in_real12;
-                buf_real [13] <= in_real13;
-                buf_real [14] <= in_real14;
-                buf_real [15] <= in_real15;
-                buf_imag [0 ] <= in_imag0 ;
-                buf_imag [1 ] <= in_imag1 ;
-                buf_imag [2 ] <= in_imag2 ;
-                buf_imag [3 ] <= in_imag3 ;
-                buf_imag [4 ] <= in_imag4 ;
-                buf_imag [5 ] <= in_imag5 ;
-                buf_imag [6 ] <= in_imag6 ;
-                buf_imag [7 ] <= in_imag7 ;
-                buf_imag [8 ] <= in_imag8 ;
-                buf_imag [9 ] <= in_imag9 ;
-                buf_imag [10] <= in_imag10;
-                buf_imag [11] <= in_imag11;
-                buf_imag [12] <= in_imag12;
-                buf_imag [13] <= in_imag13;
-                buf_imag [14] <= in_imag14;
-                buf_imag [15] <= in_imag15;
                 for (o = 0; o < 16; o = o + 1) begin
+                    buf1_real[o] <= in_real[o];
+                    buf1_imag[o] <= in_imag[o];
                     buf2_real[o] <= 32'd0;
                     buf2_imag[o] <= 32'd0;
                 end
