@@ -757,6 +757,7 @@ always @(posedge clk or posedge rst) begin
     end else begin
         case (curr_state)
             LOAD : begin
+            IDLE : begin
                 ping_pong_switcher <= 1;
                 for (o = 0; o < 16; o = o + 1) begin
                     buf1_real[o] <= in_real[o];
