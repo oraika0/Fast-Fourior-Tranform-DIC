@@ -428,79 +428,79 @@ module FFT_CORE(
     output [15:0] out_imag15,
     output        done          
 );
-reg [31:0] in_real [0:15];
-reg [31:0] in_imag [0:15];
+// reg [31:0] in_real [0:15];
+// reg [31:0] in_imag [0:15];
 
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        in_real [0 ] <= 32'd0;
-        in_real [1 ] <= 32'd0;
-        in_real [2 ] <= 32'd0;
-        in_real [3 ] <= 32'd0;
-        in_real [4 ] <= 32'd0;
-        in_real [5 ] <= 32'd0;
-        in_real [6 ] <= 32'd0;
-        in_real [7 ] <= 32'd0;
-        in_real [8 ] <= 32'd0;
-        in_real [9 ] <= 32'd0;
-        in_real [10] <= 32'd0;
-        in_real [11] <= 32'd0;
-        in_real [12] <= 32'd0;
-        in_real [13] <= 32'd0;
-        in_real [14] <= 32'd0;
-        in_real [15] <= 32'd0;
-        in_imag [0 ] <= 32'd0 ;
-        in_imag [1 ] <= 32'd0 ;
-        in_imag [2 ] <= 32'd0 ;
-        in_imag [3 ] <= 32'd0 ;
-        in_imag [4 ] <= 32'd0 ;
-        in_imag [5 ] <= 32'd0 ;
-        in_imag [6 ] <= 32'd0 ;
-        in_imag [7 ] <= 32'd0 ;
-        in_imag [8 ] <= 32'd0 ;
-        in_imag [9 ] <= 32'd0 ;
-        in_imag [10] <= 32'd00;
-        in_imag [11] <= 32'd01;
-        in_imag [12] <= 32'd02;
-        in_imag [13] <= 32'd03;
-        in_imag [14] <= 32'd04;
-        in_imag [15] <= 32'd05;
+// always @(posedge clk or posedge rst) begin
+//     if (rst) begin
+//         in_real [0 ] <= 32'd0;
+//         in_real [1 ] <= 32'd0;
+//         in_real [2 ] <= 32'd0;
+//         in_real [3 ] <= 32'd0;
+//         in_real [4 ] <= 32'd0;
+//         in_real [5 ] <= 32'd0;
+//         in_real [6 ] <= 32'd0;
+//         in_real [7 ] <= 32'd0;
+//         in_real [8 ] <= 32'd0;
+//         in_real [9 ] <= 32'd0;
+//         in_real [10] <= 32'd0;
+//         in_real [11] <= 32'd0;
+//         in_real [12] <= 32'd0;
+//         in_real [13] <= 32'd0;
+//         in_real [14] <= 32'd0;
+//         in_real [15] <= 32'd0;
+//         in_imag [0 ] <= 32'd0;
+//         in_imag [1 ] <= 32'd0;
+//         in_imag [2 ] <= 32'd0;
+//         in_imag [3 ] <= 32'd0;
+//         in_imag [4 ] <= 32'd0;
+//         in_imag [5 ] <= 32'd0;
+//         in_imag [6 ] <= 32'd0;
+//         in_imag [7 ] <= 32'd0;
+//         in_imag [8 ] <= 32'd0;
+//         in_imag [9 ] <= 32'd0;
+//         in_imag [10] <= 32'd0;
+//         in_imag [11] <= 32'd0;
+//         in_imag [12] <= 32'd0;
+//         in_imag [13] <= 32'd0;
+//         in_imag [14] <= 32'd0;
+//         in_imag [15] <= 32'd0;
     
-    end else begin
-        in_real [0 ] <= in_real0 ;
-        in_real [1 ] <= in_real1 ;
-        in_real [2 ] <= in_real2 ;
-        in_real [3 ] <= in_real3 ;
-        in_real [4 ] <= in_real4 ;
-        in_real [5 ] <= in_real5 ;
-        in_real [6 ] <= in_real6 ;
-        in_real [7 ] <= in_real7 ;
-        in_real [8 ] <= in_real8 ;
-        in_real [9 ] <= in_real9 ;
-        in_real [10] <= in_real10;
-        in_real [11] <= in_real11;
-        in_real [12] <= in_real12;
-        in_real [13] <= in_real13;
-        in_real [14] <= in_real14;
-        in_real [15] <= in_real15;
-        in_imag [0 ] <= in_imag0 ;
-        in_imag [1 ] <= in_imag1 ;
-        in_imag [2 ] <= in_imag2 ;
-        in_imag [3 ] <= in_imag3 ;
-        in_imag [4 ] <= in_imag4 ;
-        in_imag [5 ] <= in_imag5 ;
-        in_imag [6 ] <= in_imag6 ;
-        in_imag [7 ] <= in_imag7 ;
-        in_imag [8 ] <= in_imag8 ;
-        in_imag [9 ] <= in_imag9 ;
-        in_imag [10] <= in_imag10;
-        in_imag [11] <= in_imag11;
-        in_imag [12] <= in_imag12;
-        in_imag [13] <= in_imag13;
-        in_imag [14] <= in_imag14;
-        in_imag [15] <= in_imag15;
-    end
-end
+//     end else begin
+//         in_real [0 ] <= in_real0 ;
+//         in_real [1 ] <= in_real1 ;
+//         in_real [2 ] <= in_real2 ;
+//         in_real [3 ] <= in_real3 ;
+//         in_real [4 ] <= in_real4 ;
+//         in_real [5 ] <= in_real5 ;
+//         in_real [6 ] <= in_real6 ;
+//         in_real [7 ] <= in_real7 ;
+//         in_real [8 ] <= in_real8 ;
+//         in_real [9 ] <= in_real9 ;
+//         in_real [10] <= in_real10;
+//         in_real [11] <= in_real11;
+//         in_real [12] <= in_real12;
+//         in_real [13] <= in_real13;
+//         in_real [14] <= in_real14;
+//         in_real [15] <= in_real15;
+//         in_imag [0 ] <= in_imag0 ;
+//         in_imag [1 ] <= in_imag1 ;
+//         in_imag [2 ] <= in_imag2 ;
+//         in_imag [3 ] <= in_imag3 ;
+//         in_imag [4 ] <= in_imag4 ;
+//         in_imag [5 ] <= in_imag5 ;
+//         in_imag [6 ] <= in_imag6 ;
+//         in_imag [7 ] <= in_imag7 ;
+//         in_imag [8 ] <= in_imag8 ;
+//         in_imag [9 ] <= in_imag9 ;
+//         in_imag [10] <= in_imag10;
+//         in_imag [11] <= in_imag11;
+//         in_imag [12] <= in_imag12;
+//         in_imag [13] <= in_imag13;
+//         in_imag [14] <= in_imag14;
+//         in_imag [15] <= in_imag15;
+//     end
+// end
 
 // === Twiddle Factor ===
 reg signed [31:0] w_real [0:7];
@@ -754,14 +754,74 @@ integer m;
 always @(posedge clk or posedge rst) begin
     if (rst) begin
         ping_pong_switcher <= 1;
+        buf1_real[0 ] <= 32'd0;
+        buf1_real[1 ] <= 32'd0;
+        buf1_real[2 ] <= 32'd0;
+        buf1_real[3 ] <= 32'd0;
+        buf1_real[4 ] <= 32'd0;
+        buf1_real[5 ] <= 32'd0;
+        buf1_real[6 ] <= 32'd0;
+        buf1_real[7 ] <= 32'd0;
+        buf1_real[8 ] <= 32'd0;
+        buf1_real[9 ] <= 32'd0;
+        buf1_real[10] <= 32'd0;
+        buf1_real[11] <= 32'd0;
+        buf1_real[12] <= 32'd0;
+        buf1_real[13] <= 32'd0;
+        buf1_real[14] <= 32'd0;
+        buf1_real[15] <= 32'd0;
+        buf1_imag[0 ] <= 32'd0;
+        buf1_imag[1 ] <= 32'd0;
+        buf1_imag[2 ] <= 32'd0;
+        buf1_imag[3 ] <= 32'd0;
+        buf1_imag[4 ] <= 32'd0;
+        buf1_imag[5 ] <= 32'd0;
+        buf1_imag[6 ] <= 32'd0;
+        buf1_imag[7 ] <= 32'd0;
+        buf1_imag[8 ] <= 32'd0;
+        buf1_imag[9 ] <= 32'd0;
+        buf1_imag[10] <= 32'd0;
+        buf1_imag[11] <= 32'd0;
+        buf1_imag[12] <= 32'd0;
+        buf1_imag[13] <= 32'd0;
+        buf1_imag[14] <= 32'd0;
+        buf1_imag[15] <= 32'd0;
     end else begin
         case (curr_state)
-            IDLE, LOAD : begin
+            LOAD : begin
                 ping_pong_switcher <= 1;
-                for (o = 0; o < 16; o = o + 1) begin
-                    buf1_real[o] <= in_real[o];
-                    buf1_imag[o] <= in_imag[o];
-                end
+                buf1_real[0 ] <= in_real0 ;
+                buf1_real[1 ] <= in_real1 ;
+                buf1_real[2 ] <= in_real2 ;
+                buf1_real[3 ] <= in_real3 ;
+                buf1_real[4 ] <= in_real4 ;
+                buf1_real[5 ] <= in_real5 ;
+                buf1_real[6 ] <= in_real6 ;
+                buf1_real[7 ] <= in_real7 ;
+                buf1_real[8 ] <= in_real8 ;
+                buf1_real[9 ] <= in_real9 ;
+                buf1_real[10] <= in_real10;
+                buf1_real[11] <= in_real11;
+                buf1_real[12] <= in_real12;
+                buf1_real[13] <= in_real13;
+                buf1_real[14] <= in_real14;
+                buf1_real[15] <= in_real15;
+                buf1_imag[0 ] <= in_imag0 ;
+                buf1_imag[1 ] <= in_imag1 ;
+                buf1_imag[2 ] <= in_imag2 ;
+                buf1_imag[3 ] <= in_imag3 ;
+                buf1_imag[4 ] <= in_imag4 ;
+                buf1_imag[5 ] <= in_imag5 ;
+                buf1_imag[6 ] <= in_imag6 ;
+                buf1_imag[7 ] <= in_imag7 ;
+                buf1_imag[8 ] <= in_imag8 ;
+                buf1_imag[9 ] <= in_imag9 ;
+                buf1_imag[10] <= in_imag10;
+                buf1_imag[11] <= in_imag11;
+                buf1_imag[12] <= in_imag12;
+                buf1_imag[13] <= in_imag13;
+                buf1_imag[14] <= in_imag14;
+                buf1_imag[15] <= in_imag15;
             end 
             //  checking corrctness
             //  for the first u_bf： (input 0088)
