@@ -36,7 +36,6 @@ reg         fft_out_flag;           // 0 = real, 1 = imag
 reg  [15:0] fft_d        [0:15]; 
 reg         fft_out_ready_d1;
 reg         fft_out_ready_d2;
-parameter data_width = 16; // calculating data width
 
 // s2p's buffer output are stored in reg
 // , it's safe to connect directly into fft_core by wires
@@ -260,7 +259,7 @@ module S2P(
 
 integer   s         ;
 reg [3:0] ctr       ;
-reg [31:0] buffer[0:15];
+reg [15:0] buffer[0:15];
 
 always @(posedge clk or posedge rst) begin
 	if (rst) begin
@@ -295,16 +294,16 @@ assign buffer15 = buffer[15];
 endmodule
 
 module butterfly(
-    input  signed [31:0] a         ,
-    input  signed [31:0] b         ,
-    input  signed [31:0] c         ,
-    input  signed [31:0] d         ,
+    input  signed [17:0] a         ,
+    input  signed [17:0] b         ,
+    input  signed [17:0] c         ,
+    input  signed [17:0] d         ,
     input  signed [17:0] W_real    ,
     input  signed [17:0] W_imag    ,
-    output signed [31:0] FFT_A_real,
-    output signed [31:0] FFT_A_imag,
-    output signed [31:0] FFT_B_real,
-    output signed [31:0] FFT_B_imag
+    output signed [17:0] FFT_A_real,
+    output signed [17:0] FFT_A_imag,
+    output signed [17:0] FFT_B_real,
+    output signed [17:0] FFT_B_imag
 );
 // X = a + bj
 // -------------------。--。---------> fft_a = (a+c) + (b+d)j
@@ -315,20 +314,20 @@ module butterfly(
 //                                           = (a-c) * W^n_real + (d - b) * W^n_imag 
 //                                       + j * (a-c) * W^n_imag + (b - d) * W^n_real
 // Y = c + dj
-wire signed [31:0] ac_diff = a - c;
-wire signed [31:0] bd_diff = b - d; 
+wire signed [17:0] ac_diff = a - c;
+wire signed [17:0] bd_diff = b - d; 
 
-wire signed [49:0] fft_mul1 =   ac_diff * W_real;
-wire signed [49:0] fft_mul2 =  -bd_diff * W_imag;    // (d-b)W_imag
-wire signed [49:0] fft_mul3 =   ac_diff * W_imag;
-wire signed [49:0] fft_mul4 =   bd_diff * W_real;    // (b-d)W_read
+wire signed [35:0] fft_mul1 =   ac_diff * W_real;
+wire signed [35:0] fft_mul2 =  -bd_diff * W_imag;    // (d-b)W_imag
+wire signed [35:0] fft_mul3 =   ac_diff * W_imag;
+wire signed [35:0] fft_mul4 =   bd_diff * W_real;    // (b-d)W_read
 
 assign FFT_A_real = a               + c              ;
 assign FFT_A_imag = b               + d              ;
-assign FFT_B_real = fft_mul1[47:16]
-                  + fft_mul2[47:16];
-assign FFT_B_imag = fft_mul3[47:16]
-                  + fft_mul4[47:16];  
+assign FFT_B_real = fft_mul1[33:16]
+                  + fft_mul2[33:16];
+assign FFT_B_imag = fft_mul3[33:16]
+                  + fft_mul4[33:16];  
 endmodule
 
 module FFT_CORE(
@@ -443,9 +442,11 @@ parameter [2:0] IDLE   = 3'd0,
                 STAGE4 = 3'd4,
                 DONE   = 3'd7;
 
+parameter integer DATA_WIDTH = 18;
+
 reg [2:0] curr_state, next_state;
-reg [31:0] buf1_real[0:15], buf1_imag[0:15];
-reg [31:0] buf2_real[0:15], buf2_imag[0:15];
+reg [DATA_WIDTH-1 :0] buf1_real[0:15], buf1_imag[0:15];
+reg [DATA_WIDTH-1 :0] buf2_real[0:15], buf2_imag[0:15];
 
 // Wire based on curr_state
 assign done = (curr_state == DONE) ? 1'b1 : 1'b0;
@@ -603,15 +604,15 @@ always@(*)begin
 end
 
 // === Butterfly Wiring Out for Wiring Outside ===
-wire signed [31:0] lyr_in_a_real [0:7],
-                   lyr_in_a_imag [0:7];
-wire signed [31:0] lyr_in_b_real [0:7],
-                   lyr_in_b_imag [0:7];
+wire signed [DATA_WIDTH-1 :0] lyr_in_a_real [0:7],
+                            lyr_in_a_imag [0:7];
+wire signed [DATA_WIDTH-1 :0] lyr_in_b_real [0:7],
+                              lyr_in_b_imag [0:7];
 
-wire signed [31:0] lyr_out_a_real[0:7],
-                   lyr_out_a_imag[0:7];
-wire signed [31:0] lyr_out_b_real[0:7],
-                   lyr_out_b_imag[0:7];
+wire signed [DATA_WIDTH-1 :0] lyr_out_a_real[0:7],
+                              lyr_out_a_imag[0:7];
+wire signed [DATA_WIDTH-1 :0] lyr_out_b_real[0:7],
+                              lyr_out_b_imag[0:7];
 
 genvar i;
 generate
@@ -659,38 +660,70 @@ always @(posedge clk or posedge rst) begin
         case (curr_state)
             IDLE : begin
                 ping_pong_switcher <= 1;
-                buf1_real [0 ] <= {{8{in_real0 [15]}}, in_real0 , 8'b0};
-                buf1_real [1 ] <= {{8{in_real1 [15]}}, in_real1 , 8'b0};
-                buf1_real [2 ] <= {{8{in_real2 [15]}}, in_real2 , 8'b0};
-                buf1_real [3 ] <= {{8{in_real3 [15]}}, in_real3 , 8'b0};
-                buf1_real [4 ] <= {{8{in_real4 [15]}}, in_real4 , 8'b0};
-                buf1_real [5 ] <= {{8{in_real5 [15]}}, in_real5 , 8'b0};
-                buf1_real [6 ] <= {{8{in_real6 [15]}}, in_real6 , 8'b0};
-                buf1_real [7 ] <= {{8{in_real7 [15]}}, in_real7 , 8'b0};
-                buf1_real [8 ] <= {{8{in_real8 [15]}}, in_real8 , 8'b0};
-                buf1_real [9 ] <= {{8{in_real9 [15]}}, in_real9 , 8'b0};
-                buf1_real [10] <= {{8{in_real10[15]}}, in_real10, 8'b0};
-                buf1_real [11] <= {{8{in_real11[15]}}, in_real11, 8'b0};
-                buf1_real [12] <= {{8{in_real12[15]}}, in_real12, 8'b0};
-                buf1_real [13] <= {{8{in_real13[15]}}, in_real13, 8'b0};
-                buf1_real [14] <= {{8{in_real14[15]}}, in_real14, 8'b0};
-                buf1_real [15] <= {{8{in_real15[15]}}, in_real15, 8'b0};
-                buf1_imag [0 ] <= 32'd0;
-                buf1_imag [1 ] <= 32'd0;
-                buf1_imag [2 ] <= 32'd0;
-                buf1_imag [3 ] <= 32'd0;
-                buf1_imag [4 ] <= 32'd0;
-                buf1_imag [5 ] <= 32'd0;
-                buf1_imag [6 ] <= 32'd0;
-                buf1_imag [7 ] <= 32'd0;
-                buf1_imag [8 ] <= 32'd0;
-                buf1_imag [9 ] <= 32'd0;
-                buf1_imag [10] <= 32'd0;
-                buf1_imag [11] <= 32'd0;
-                buf1_imag [12] <= 32'd0;
-                buf1_imag [13] <= 32'd0;
-                buf1_imag [14] <= 32'd0;
-                buf1_imag [15] <= 32'd0;
+                buf1_real [0 ] <= {{1{in_real0 [15]}}, in_real0 , 1'b0};
+                buf1_real [1 ] <= {{1{in_real1 [15]}}, in_real1 , 1'b0};
+                buf1_real [2 ] <= {{1{in_real2 [15]}}, in_real2 , 1'b0};
+                buf1_real [3 ] <= {{1{in_real3 [15]}}, in_real3 , 1'b0};
+                buf1_real [4 ] <= {{1{in_real4 [15]}}, in_real4 , 1'b0};
+                buf1_real [5 ] <= {{1{in_real5 [15]}}, in_real5 , 1'b0};
+                buf1_real [6 ] <= {{1{in_real6 [15]}}, in_real6 , 1'b0};
+                buf1_real [7 ] <= {{1{in_real7 [15]}}, in_real7 , 1'b0};
+                buf1_real [8 ] <= {{1{in_real8 [15]}}, in_real8 , 1'b0};
+                buf1_real [9 ] <= {{1{in_real9 [15]}}, in_real9 , 1'b0};
+                buf1_real [10] <= {{1{in_real10[15]}}, in_real10, 1'b0};
+                buf1_real [11] <= {{1{in_real11[15]}}, in_real11, 1'b0};
+                buf1_real [12] <= {{1{in_real12[15]}}, in_real12, 1'b0};
+                buf1_real [13] <= {{1{in_real13[15]}}, in_real13, 1'b0};
+                buf1_real [14] <= {{1{in_real14[15]}}, in_real14, 1'b0};
+                buf1_real [15] <= {{1{in_real15[15]}}, in_real15, 1'b0};
+                buf1_imag [0 ] <= 18'd0;
+                buf1_imag [1 ] <= 18'd0;
+                buf1_imag [2 ] <= 18'd0;
+                buf1_imag [3 ] <= 18'd0;
+                buf1_imag [4 ] <= 18'd0;
+                buf1_imag [5 ] <= 18'd0;
+                buf1_imag [6 ] <= 18'd0;
+                buf1_imag [7 ] <= 18'd0;
+                buf1_imag [8 ] <= 18'd0;
+                buf1_imag [9 ] <= 18'd0;
+                buf1_imag [10] <= 18'd0;
+                buf1_imag [11] <= 18'd0;
+                buf1_imag [12] <= 18'd0;
+                buf1_imag [13] <= 18'd0;
+                buf1_imag [14] <= 18'd0;
+                buf1_imag [15] <= 18'd0;
+                // buf1_real [0 ] <= {{8{in_real0 [15]}}, in_real0 , 8'b0};
+                // buf1_real [1 ] <= {{8{in_real1 [15]}}, in_real1 , 8'b0};
+                // buf1_real [2 ] <= {{8{in_real2 [15]}}, in_real2 , 8'b0};
+                // buf1_real [3 ] <= {{8{in_real3 [15]}}, in_real3 , 8'b0};
+                // buf1_real [4 ] <= {{8{in_real4 [15]}}, in_real4 , 8'b0};
+                // buf1_real [5 ] <= {{8{in_real5 [15]}}, in_real5 , 8'b0};
+                // buf1_real [6 ] <= {{8{in_real6 [15]}}, in_real6 , 8'b0};
+                // buf1_real [7 ] <= {{8{in_real7 [15]}}, in_real7 , 8'b0};
+                // buf1_real [8 ] <= {{8{in_real8 [15]}}, in_real8 , 8'b0};
+                // buf1_real [9 ] <= {{8{in_real9 [15]}}, in_real9 , 8'b0};
+                // buf1_real [10] <= {{8{in_real10[15]}}, in_real10, 8'b0};
+                // buf1_real [11] <= {{8{in_real11[15]}}, in_real11, 8'b0};
+                // buf1_real [12] <= {{8{in_real12[15]}}, in_real12, 8'b0};
+                // buf1_real [13] <= {{8{in_real13[15]}}, in_real13, 8'b0};
+                // buf1_real [14] <= {{8{in_real14[15]}}, in_real14, 8'b0};
+                // buf1_real [15] <= {{8{in_real15[15]}}, in_real15, 8'b0};
+                // buf1_imag [0 ] <= 32'd0;
+                // buf1_imag [1 ] <= 32'd0;
+                // buf1_imag [2 ] <= 32'd0;
+                // buf1_imag [3 ] <= 32'd0;
+                // buf1_imag [4 ] <= 32'd0;
+                // buf1_imag [5 ] <= 32'd0;
+                // buf1_imag [6 ] <= 32'd0;
+                // buf1_imag [7 ] <= 32'd0;
+                // buf1_imag [8 ] <= 32'd0;
+                // buf1_imag [9 ] <= 32'd0;
+                // buf1_imag [10] <= 32'd0;
+                // buf1_imag [11] <= 32'd0;
+                // buf1_imag [12] <= 32'd0;
+                // buf1_imag [13] <= 32'd0;
+                // buf1_imag [14] <= 32'd0;
+                // buf1_imag [15] <= 32'd0;
                 for (o = 0; o < 16; o = o + 1) begin
                     buf2_real[o] <= 32'd0;
                     buf2_imag[o] <= 32'd0;
@@ -722,38 +755,38 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
-assign out_real0  = buf1_real[0 ][23:8];
-assign out_real8  = buf1_real[1 ][23:8];
-assign out_real4  = buf1_real[2 ][23:8];
-assign out_real12 = buf1_real[3 ][23:8];
-assign out_real2  = buf1_real[4 ][23:8];
-assign out_real10 = buf1_real[5 ][23:8];
-assign out_real6  = buf1_real[6 ][23:8];
-assign out_real14 = buf1_real[7 ][23:8];
-assign out_real1  = buf1_real[8 ][23:8];
-assign out_real9  = buf1_real[9 ][23:8];
-assign out_real5  = buf1_real[10][23:8];
-assign out_real13 = buf1_real[11][23:8];
-assign out_real3  = buf1_real[12][23:8];
-assign out_real11 = buf1_real[13][23:8];
-assign out_real7  = buf1_real[14][23:8];
-assign out_real15 = buf1_real[15][23:8];
-assign out_imag0  = buf1_imag[0 ][23:8];
-assign out_imag8  = buf1_imag[1 ][23:8];
-assign out_imag4  = buf1_imag[2 ][23:8];
-assign out_imag12 = buf1_imag[3 ][23:8];
-assign out_imag2  = buf1_imag[4 ][23:8];
-assign out_imag10 = buf1_imag[5 ][23:8];
-assign out_imag6  = buf1_imag[6 ][23:8];
-assign out_imag14 = buf1_imag[7 ][23:8];
-assign out_imag1  = buf1_imag[8 ][23:8];
-assign out_imag9  = buf1_imag[9 ][23:8];
-assign out_imag5  = buf1_imag[10][23:8];
-assign out_imag13 = buf1_imag[11][23:8];
-assign out_imag3  = buf1_imag[12][23:8];
-assign out_imag11 = buf1_imag[13][23:8];
-assign out_imag7  = buf1_imag[14][23:8];
-assign out_imag15 = buf1_imag[15][23:8];
+assign out_real0  = buf1_real[0 ][16:1];
+assign out_real8  = buf1_real[1 ][16:1];
+assign out_real4  = buf1_real[2 ][16:1];
+assign out_real12 = buf1_real[3 ][16:1];
+assign out_real2  = buf1_real[4 ][16:1];
+assign out_real10 = buf1_real[5 ][16:1];
+assign out_real6  = buf1_real[6 ][16:1];
+assign out_real14 = buf1_real[7 ][16:1];
+assign out_real1  = buf1_real[8 ][16:1];
+assign out_real9  = buf1_real[9 ][16:1];
+assign out_real5  = buf1_real[10][16:1];
+assign out_real13 = buf1_real[11][16:1];
+assign out_real3  = buf1_real[12][16:1];
+assign out_real11 = buf1_real[13][16:1];
+assign out_real7  = buf1_real[14][16:1];
+assign out_real15 = buf1_real[15][16:1];
+assign out_imag0  = buf1_imag[0 ][16:1];
+assign out_imag8  = buf1_imag[1 ][16:1];
+assign out_imag4  = buf1_imag[2 ][16:1];
+assign out_imag12 = buf1_imag[3 ][16:1];
+assign out_imag2  = buf1_imag[4 ][16:1];
+assign out_imag10 = buf1_imag[5 ][16:1];
+assign out_imag6  = buf1_imag[6 ][16:1];
+assign out_imag14 = buf1_imag[7 ][16:1];
+assign out_imag1  = buf1_imag[8 ][16:1];
+assign out_imag9  = buf1_imag[9 ][16:1];
+assign out_imag5  = buf1_imag[10][16:1];
+assign out_imag13 = buf1_imag[11][16:1];
+assign out_imag3  = buf1_imag[12][16:1];
+assign out_imag11 = buf1_imag[13][16:1];
+assign out_imag7  = buf1_imag[14][16:1];
+assign out_imag15 = buf1_imag[15][16:1];
 
 // FSM Next stage logic
 always @(*) begin
