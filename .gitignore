@@ -13,6 +13,8 @@
 *.log
 *.wlf
 *.csd
+*.bak
+*.vstf
 transcript
 db/
 incremental_db/
