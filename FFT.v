@@ -718,8 +718,8 @@ always @(posedge clk or posedge rst) begin
             end 
             //  checking corrctness
             STAGE1, STAGE3 : begin
+                ping_pong_switcher <= ~ping_pong_switcher;
                 for (l = 0; l < 8; l = l + 1) begin
-                    ping_pong_switcher <= ~ping_pong_switcher;
                     buf2_real[odr_a_idx[l]] <= lyr_out_a_real[l];
                     buf2_imag[odr_a_idx[l]] <= lyr_out_a_imag[l];
                     buf2_real[odr_b_idx[l]] <= lyr_out_b_real[l];
@@ -727,8 +727,8 @@ always @(posedge clk or posedge rst) begin
                 end
             end 
             STAGE2, STAGE4 : begin
-                    for (m = 0; m < 8; m = m + 1) begin
-                    ping_pong_switcher <= ~ping_pong_switcher;
+                ping_pong_switcher <= ~ping_pong_switcher;
+                for (m = 0; m < 8; m = m + 1) begin
                     buf1_real[odr_a_idx[m]] <= lyr_out_a_real[m];
                     buf1_imag[odr_a_idx[m]] <= lyr_out_a_imag[m];
                     buf1_real[odr_b_idx[m]] <= lyr_out_b_real[m];
