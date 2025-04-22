@@ -315,8 +315,8 @@ module butterfly(
     input  signed [31:0] b         ,
     input  signed [31:0] c         ,
     input  signed [31:0] d         ,
-    input  signed [31:0] W_real    ,
-    input  signed [31:0] W_imag    ,
+    input  signed [17:0] W_real    ,
+    input  signed [17:0] W_imag    ,
     output signed [31:0] FFT_A_real,
     output signed [31:0] FFT_A_imag,
     output signed [31:0] FFT_B_real,
@@ -334,15 +334,17 @@ module butterfly(
 wire signed [31:0] ac_diff = a - c;
 wire signed [31:0] bd_diff = b - d; 
 
-wire signed [63:0] fft_mul1 =   ac_diff * W_real;
-wire signed [63:0] fft_mul2 =  -bd_diff * W_imag;    // (d-b)W_imag
-wire signed [63:0] fft_mul3 =   ac_diff * W_imag;
-wire signed [63:0] fft_mul4 =   bd_diff * W_real;    // (b-d)W_read
+wire signed [49:0] fft_mul1 =   ac_diff * W_real;
+wire signed [49:0] fft_mul2 =  -bd_diff * W_imag;    // (d-b)W_imag
+wire signed [49:0] fft_mul3 =   ac_diff * W_imag;
+wire signed [49:0] fft_mul4 =   bd_diff * W_real;    // (b-d)W_read
 
 assign FFT_A_real = a               + c              ;
 assign FFT_A_imag = b               + d              ;
-assign FFT_B_real = fft_mul1[47:16] + fft_mul2[47:16];
-assign FFT_B_imag = fft_mul3[47:16] + fft_mul4[47:16];  
+assign FFT_B_real = fft_mul1[47:16]
+                  + fft_mul2[47:16];
+assign FFT_B_imag = fft_mul3[47:16]
+                  + fft_mul4[47:16];  
 endmodule
 
 module FFT_CORE(
@@ -422,29 +424,76 @@ module FFT_CORE(
 
 
 
-// === Twiddle Factor ===
-reg signed [31:0] w_real [0:7];
+
+// // === Twiddle Factor ===
+// reg signed [15:0] w_real [0:7];
+// initial begin
+//     w_real[0] = 32'sh0100;
+//     w_real[1] = 32'sh00EC;
+//     w_real[2] = 32'sh00B5;
+//     w_real[3] = 32'sh0061;
+//     w_real[4] = 32'sh0000;
+//     w_real[5] = 32'shFF9E;
+//     w_real[6] = 32'shFF4A;
+//     w_real[7] = 32'shFF13;
+// end
+
+// reg signed [15:0] w_imag [0:7];
+// initial begin
+//     w_imag[0] = 32'sh0000;
+//     w_imag[1] = 32'shFF9E;
+//     w_imag[2] = 32'shFF4A;
+//     w_imag[3] = 32'shFF13;
+//     w_imag[4] = 32'shFF00;
+//     w_imag[5] = 32'shFF13;
+//     w_imag[6] = 32'shFF4A;
+//     w_imag[7] = 32'shFF9E;
+// end
+// reg signed [31:0] w_real [0:7];
+// initial begin
+//     w_real[0] = 32'sh00010000;
+//     w_real[1] = 32'sh0000EC83;
+//     w_real[2] = 32'sh0000B504;
+//     w_real[3] = 32'sh000061F7;
+//     w_real[4] = 32'sh00000000;
+//     w_real[5] = 32'shFFFF9E09;
+//     w_real[6] = 32'shFFFF4AFC;
+//     w_real[7] = 32'shFFFF137D;
+// end
+
+// reg signed [31:0] w_imag [0:7];
+// initial begin
+//     w_imag[0] = 32'sh00000000;
+//     w_imag[1] = 32'shFFFF9E09;
+//     w_imag[2] = 32'shFFFF4AFC;
+//     w_imag[3] = 32'shFFFF137D;
+//     w_imag[4] = 32'shFFFF0000;
+//     w_imag[5] = 32'shFFFF137D;
+//     w_imag[6] = 32'shFFFF4AFC;
+//     w_imag[7] = 32'shFFFF9E09;
+// end
+reg signed [17:0] w_real [0:7];
 initial begin
-    w_real[0] = 32'sh00010000;
-    w_real[1] = 32'sh0000EC83;
-    w_real[2] = 32'sh0000B504;
-    w_real[3] = 32'sh000061F7;
-    w_real[4] = 32'sh00000000;
-    w_real[5] = 32'shFFFF9E09;
-    w_real[6] = 32'shFFFF4AFC;
-    w_real[7] = 32'shFFFF137D;
+    w_real[0] = 18'sh10000;
+    w_real[1] = 18'sh0EC83;
+    w_real[2] = 18'sh0B504;
+    w_real[3] = 18'sh061F7;
+    w_real[4] = 18'sh00000;
+    w_real[5] = 18'shF9E09;
+    w_real[6] = 18'shF4AFC;
+    w_real[7] = 18'shF137D;
 end
 
-reg signed [31:0] w_imag [0:7];
+reg signed [17:0] w_imag [0:7];
 initial begin
-    w_imag[0] = 32'sh00000000;
-    w_imag[1] = 32'shFFFF9E09;
-    w_imag[2] = 32'shFFFF4AFC;
-    w_imag[3] = 32'shFFFF137D;
-    w_imag[4] = 32'shFFFF0000;
-    w_imag[5] = 32'shFFFF137D;
-    w_imag[6] = 32'shFFFF4AFC;
-    w_imag[7] = 32'shFFFF9E09;
+    w_imag[0] = 18'sh00000;
+    w_imag[1] = 18'shF9E09;
+    w_imag[2] = 18'shF4AFC;
+    w_imag[3] = 18'shF137D;
+    w_imag[4] = 18'shF0000;
+    w_imag[5] = 18'shF137D;
+    w_imag[6] = 18'shF4AFC;
+    w_imag[7] = 18'shF9E09;
 end
                        
 parameter [2:0] IDLE   = 3'd0,
