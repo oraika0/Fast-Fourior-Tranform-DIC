@@ -27,14 +27,13 @@ module  FFT(
 // Please write your code here //
 /////////////////////////////////
 
-wire [31:0] p_out         [0:15];   //parallel output of S2P
+wire [15:0] p_out         [0:15];   //parallel output of S2P
 wire        buffer_ready;           //parallel ready signal
 wire        fft_out_ready;
 wire [15:0] fft_out_real [0:15];    //fft output
 wire [15:0] fft_out_imag [0:15];    //fft output
 reg         fft_out_flag;           // 0 = real, 1 = imag
 reg  [15:0] fft_d        [0:15]; 
-reg         fft_valid_reg;          // 0 = real, 1 = imag
 reg         fft_out_ready_d1;
 reg         fft_out_ready_d2;
 
@@ -150,9 +149,7 @@ end
 always @(posedge clk or posedge rst) begin
     if (rst) begin
         fft_out_flag <= 0;
-        fft_valid_reg <= 0;
     end else if (fft_out_ready | fft_out_ready_d1) begin
-        fft_valid_reg <= 1;
         if (!fft_out_flag) begin
             // output real
             fft_d[0]  <= fft_out_real[0];
@@ -191,9 +188,7 @@ always @(posedge clk or posedge rst) begin
             fft_d[15] <= fft_out_imag[15];
         end
         fft_out_flag <= ~fft_out_flag;  // flip to output imag next
-    end else begin
-        fft_valid_reg <= 0;
-    end
+    end 
 end
 
 assign fft_valid = fft_out_ready_d2 | fft_out_ready_d1;
@@ -261,25 +256,25 @@ module S2P(
     input      [15:0] fir_d        , 
     input             fir_valid    ,
     output reg        buffer_ready ,
-    output     [31:0] buffer0      ,
-    output     [31:0] buffer1      ,
-    output     [31:0] buffer2      ,
-    output     [31:0] buffer3      ,
-    output     [31:0] buffer4      ,
-    output     [31:0] buffer5      ,
-    output     [31:0] buffer6      ,
-    output     [31:0] buffer7      ,
-    output     [31:0] buffer8      ,
-    output     [31:0] buffer9      ,
-    output     [31:0] buffer10     ,
-    output     [31:0] buffer11     ,
-    output     [31:0] buffer12     ,
-    output     [31:0] buffer13     ,
-    output     [31:0] buffer14     ,
-    output     [31:0] buffer15
+    output     [15:0] buffer0      ,
+    output     [15:0] buffer1      ,
+    output     [15:0] buffer2      ,
+    output     [15:0] buffer3      ,
+    output     [15:0] buffer4      ,
+    output     [15:0] buffer5      ,
+    output     [15:0] buffer6      ,
+    output     [15:0] buffer7      ,
+    output     [15:0] buffer8      ,
+    output     [15:0] buffer9      ,
+    output     [15:0] buffer10     ,
+    output     [15:0] buffer11     ,
+    output     [15:0] buffer12     ,
+    output     [15:0] buffer13     ,
+    output     [15:0] buffer14     ,
+    output     [15:0] buffer15
 );
 
-integer   i         ;
+integer   s         ;
 reg [3:0] ctr       ;
 reg [31:0] buffer[0:15];
 
@@ -287,16 +282,12 @@ always @(posedge clk or posedge rst) begin
 	if (rst) begin
         ctr          <= 4'd0;
         buffer_ready <= 0   ;
-        for (i = 0; i < 16; i = i + 1) buffer[i] <= 32'd0;
+        for (s = 0; s < 16; s = s + 1) buffer[s] = 32'd0;
 
     end	else if (fir_valid) begin
 		buffer_ready <= (ctr == 4'd15)                 ;
         ctr          <= (ctr == 4'd15) ? 4'd0 : ctr + 1; 
-        buffer[ctr]  <= {
-                         {8{fir_d[15]}}, // sign extension of fir_d
-                         fir_d,          // middle 16 bits
-                         8'd0            // zero padding
-        };
+        buffer[ctr]  <= fir_d;
     end else begin
         buffer_ready <= 0;
     end
@@ -359,22 +350,22 @@ module FFT_CORE(
     input         rst           ,
     input         buffer_ready  ,
     // input  [31:0] in_real [0:15],
-    input  [31:0] in_real0 ,
-    input  [31:0] in_real1 ,
-    input  [31:0] in_real2 ,
-    input  [31:0] in_real3 ,
-    input  [31:0] in_real4 ,
-    input  [31:0] in_real5 ,
-    input  [31:0] in_real6 ,
-    input  [31:0] in_real7 ,
-    input  [31:0] in_real8 ,
-    input  [31:0] in_real9 ,
-    input  [31:0] in_real10,
-    input  [31:0] in_real11,
-    input  [31:0] in_real12,
-    input  [31:0] in_real13,
-    input  [31:0] in_real14,
-    input  [31:0] in_real15,
+    input  [15:0] in_real0 ,
+    input  [15:0] in_real1 ,
+    input  [15:0] in_real2 ,
+    input  [15:0] in_real3 ,
+    input  [15:0] in_real4 ,
+    input  [15:0] in_real5 ,
+    input  [15:0] in_real6 ,
+    input  [15:0] in_real7 ,
+    input  [15:0] in_real8 ,
+    input  [15:0] in_real9 ,
+    input  [15:0] in_real10,
+    input  [15:0] in_real11,
+    input  [15:0] in_real12,
+    input  [15:0] in_real13,
+    input  [15:0] in_real14,
+    input  [15:0] in_real15,
     // inp ut  [31:0] in_imag [0:15],
     input  [31:0] in_imag0 ,
     input  [31:0] in_imag1 ,
@@ -468,7 +459,7 @@ reg [31:0] buf1_real[0:15], buf1_imag[0:15];
 reg [31:0] buf2_real[0:15], buf2_imag[0:15];
 
 // Wire based on curr_state
-assign done = (curr_state == DONE) ? 1 : 0;
+assign done = (curr_state == DONE) ? 1'b1 : 1'b0;
 
 reg ping_pong_switcher;  //using lyr_a => 1
 // === Index Pair & Twiddle Index Lookup ===
@@ -610,14 +601,14 @@ always@(*)begin
             odr_b_idx[6] = 4'd13;
             odr_b_idx[7] = 4'd15;
             
-            twiddle_idx[0] = 4'd0; 
-            twiddle_idx[1] = 4'd0; 
-            twiddle_idx[2] = 4'd0; 
-            twiddle_idx[3] = 4'd0; 
-            twiddle_idx[4] = 4'd0; 
-            twiddle_idx[5] = 4'd0; 
-            twiddle_idx[6] = 4'd0; 
-            twiddle_idx[7] = 4'd0; 
+            twiddle_idx[0] = 3'd0; 
+            twiddle_idx[1] = 3'd0; 
+            twiddle_idx[2] = 3'd0; 
+            twiddle_idx[3] = 3'd0; 
+            twiddle_idx[4] = 3'd0; 
+            twiddle_idx[5] = 3'd0; 
+            twiddle_idx[6] = 3'd0; 
+            twiddle_idx[7] = 3'd0; 
         end 
     endcase
 end
@@ -679,38 +670,38 @@ always @(posedge clk or posedge rst) begin
         case (curr_state)
             IDLE : begin
                 ping_pong_switcher <= 1;
-                buf1_real [0 ] <= in_real0 ;
-                buf1_real [1 ] <= in_real1 ;
-                buf1_real [2 ] <= in_real2 ;
-                buf1_real [3 ] <= in_real3 ;
-                buf1_real [4 ] <= in_real4 ;
-                buf1_real [5 ] <= in_real5 ;
-                buf1_real [6 ] <= in_real6 ;
-                buf1_real [7 ] <= in_real7 ;
-                buf1_real [8 ] <= in_real8 ;
-                buf1_real [9 ] <= in_real9 ;
-                buf1_real [10] <= in_real10;
-                buf1_real [11] <= in_real11;
-                buf1_real [12] <= in_real12;
-                buf1_real [13] <= in_real13;
-                buf1_real [14] <= in_real14;
-                buf1_real [15] <= in_real15;
-                buf1_imag [0 ] <= in_imag0 ;
-                buf1_imag [1 ] <= in_imag1 ;
-                buf1_imag [2 ] <= in_imag2 ;
-                buf1_imag [3 ] <= in_imag3 ;
-                buf1_imag [4 ] <= in_imag4 ;
-                buf1_imag [5 ] <= in_imag5 ;
-                buf1_imag [6 ] <= in_imag6 ;
-                buf1_imag [7 ] <= in_imag7 ;
-                buf1_imag [8 ] <= in_imag8 ;
-                buf1_imag [9 ] <= in_imag9 ;
-                buf1_imag [10] <= in_imag10;
-                buf1_imag [11] <= in_imag11;
-                buf1_imag [12] <= in_imag12;
-                buf1_imag [13] <= in_imag13;
-                buf1_imag [14] <= in_imag14;
-                buf1_imag [15] <= in_imag15;
+                buf1_real [0 ] <= {{8{in_real0 [15]}}, in_real0 , 8'b0};
+                buf1_real [1 ] <= {{8{in_real1 [15]}}, in_real1 , 8'b0};
+                buf1_real [2 ] <= {{8{in_real2 [15]}}, in_real2 , 8'b0};
+                buf1_real [3 ] <= {{8{in_real3 [15]}}, in_real3 , 8'b0};
+                buf1_real [4 ] <= {{8{in_real4 [15]}}, in_real4 , 8'b0};
+                buf1_real [5 ] <= {{8{in_real5 [15]}}, in_real5 , 8'b0};
+                buf1_real [6 ] <= {{8{in_real6 [15]}}, in_real6 , 8'b0};
+                buf1_real [7 ] <= {{8{in_real7 [15]}}, in_real7 , 8'b0};
+                buf1_real [8 ] <= {{8{in_real8 [15]}}, in_real8 , 8'b0};
+                buf1_real [9 ] <= {{8{in_real9 [15]}}, in_real9 , 8'b0};
+                buf1_real [10] <= {{8{in_real10[15]}}, in_real10, 8'b0};
+                buf1_real [11] <= {{8{in_real11[15]}}, in_real11, 8'b0};
+                buf1_real [12] <= {{8{in_real12[15]}}, in_real12, 8'b0};
+                buf1_real [13] <= {{8{in_real13[15]}}, in_real13, 8'b0};
+                buf1_real [14] <= {{8{in_real14[15]}}, in_real14, 8'b0};
+                buf1_real [15] <= {{8{in_real15[15]}}, in_real15, 8'b0};
+                buf1_imag [0 ] <= {{8{in_imag0 [15]}}, in_imag0 , 8'b0};
+                buf1_imag [1 ] <= {{8{in_imag1 [15]}}, in_imag1 , 8'b0};
+                buf1_imag [2 ] <= {{8{in_imag2 [15]}}, in_imag2 , 8'b0};
+                buf1_imag [3 ] <= {{8{in_imag3 [15]}}, in_imag3 , 8'b0};
+                buf1_imag [4 ] <= {{8{in_imag4 [15]}}, in_imag4 , 8'b0};
+                buf1_imag [5 ] <= {{8{in_imag5 [15]}}, in_imag5 , 8'b0};
+                buf1_imag [6 ] <= {{8{in_imag6 [15]}}, in_imag6 , 8'b0};
+                buf1_imag [7 ] <= {{8{in_imag7 [15]}}, in_imag7 , 8'b0};
+                buf1_imag [8 ] <= {{8{in_imag8 [15]}}, in_imag8 , 8'b0};
+                buf1_imag [9 ] <= {{8{in_imag9 [15]}}, in_imag9 , 8'b0};
+                buf1_imag [10] <= {{8{in_imag10[15]}}, in_imag10, 8'b0};
+                buf1_imag [11] <= {{8{in_imag11[15]}}, in_imag11, 8'b0};
+                buf1_imag [12] <= {{8{in_imag12[15]}}, in_imag12, 8'b0};
+                buf1_imag [13] <= {{8{in_imag13[15]}}, in_imag13, 8'b0};
+                buf1_imag [14] <= {{8{in_imag14[15]}}, in_imag14, 8'b0};
+                buf1_imag [15] <= {{8{in_imag15[15]}}, in_imag15, 8'b0};
                 for (o = 0; o < 16; o = o + 1) begin
                     buf2_real[o] <= 32'd0;
                     buf2_imag[o] <= 32'd0;

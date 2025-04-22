@@ -1,7 +1,7 @@
 `timescale 1ns/10ps
 `define CYCLE     30                // Modify your clock period here
 `define End_CYCLE  100000          // Modify cycle times once your design need more cycle times!
-`define P1                        // Modify to test different pattern
+`define P2                        // Modify to test different pattern
 
 module testfixture;
 
