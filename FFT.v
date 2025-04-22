@@ -28,7 +28,6 @@ module  FFT(
 /////////////////////////////////
 
 wire [31:0] p_out         [0:15];   //parallel output of S2P
-reg  [31:0] p_out_reg     [0:15];
 wire        buffer_ready;           //parallel ready signal
 wire        fft_out_ready;
 wire [15:0] fft_out_real [0:15];    //fft output
@@ -39,7 +38,8 @@ reg         fft_valid_reg;          // 0 = real, 1 = imag
 reg         fft_out_ready_d1;
 reg         fft_out_ready_d2;
 
-
+// s2p's buffer output are stored in reg
+// , it's safe to connect directly into fft_core by wires
 S2P S2P1(.clk(clk)                  ,
          .rst(rst)                  ,
          .fir_d(fir_d)              ,
@@ -63,64 +63,25 @@ S2P S2P1(.clk(clk)                  ,
          .buffer15(p_out[15])
         );
 
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        p_out_reg[0 ] <= 32'd0;
-        p_out_reg[1 ] <= 32'd0;
-        p_out_reg[2 ] <= 32'd0;
-        p_out_reg[3 ] <= 32'd0;
-        p_out_reg[4 ] <= 32'd0;
-        p_out_reg[5 ] <= 32'd0;
-        p_out_reg[6 ] <= 32'd0;
-        p_out_reg[7 ] <= 32'd0;
-        p_out_reg[8 ] <= 32'd0;
-        p_out_reg[9 ] <= 32'd0;
-        p_out_reg[10] <= 32'd0;
-        p_out_reg[11] <= 32'd0;
-        p_out_reg[12] <= 32'd0;
-        p_out_reg[13] <= 32'd0;
-        p_out_reg[14] <= 32'd0;
-        p_out_reg[15] <= 32'd0;
-    end else if (buffer_ready) begin
-        p_out_reg[0 ] <= p_out[0 ];
-        p_out_reg[1 ] <= p_out[1 ];
-        p_out_reg[2 ] <= p_out[2 ];
-        p_out_reg[3 ] <= p_out[3 ];
-        p_out_reg[4 ] <= p_out[4 ];
-        p_out_reg[5 ] <= p_out[5 ];
-        p_out_reg[6 ] <= p_out[6 ];
-        p_out_reg[7 ] <= p_out[7 ];
-        p_out_reg[8 ] <= p_out[8 ];
-        p_out_reg[9 ] <= p_out[9 ];
-        p_out_reg[10] <= p_out[10];
-        p_out_reg[11] <= p_out[11];
-        p_out_reg[12] <= p_out[12];
-        p_out_reg[13] <= p_out[13];
-        p_out_reg[14] <= p_out[14];
-        p_out_reg[15] <= p_out[15];
-    end else begin
-    end
-end
-
 FFT_CORE FFT_CORE1(.clk(clk),   
                    .rst(rst),       
                    .buffer_ready(buffer_ready),
-                   .in_real0 (p_out_reg[0 ]),
-                   .in_real1 (p_out_reg[1 ]),
-                   .in_real2 (p_out_reg[2 ]),
-                   .in_real3 (p_out_reg[3 ]),
-                   .in_real4 (p_out_reg[4 ]),
-                   .in_real5 (p_out_reg[5 ]),
-                   .in_real6 (p_out_reg[6 ]),
-                   .in_real7 (p_out_reg[7 ]),
-                   .in_real8 (p_out_reg[8 ]),
-                   .in_real9 (p_out_reg[9 ]),
-                   .in_real10(p_out_reg[10]),
-                   .in_real11(p_out_reg[11]),
-                   .in_real12(p_out_reg[12]),
-                   .in_real13(p_out_reg[13]),
-                   .in_real14(p_out_reg[14]),
-                   .in_real15(p_out_reg[15]),
+                   .in_real0 (p_out[0 ]),
+                   .in_real1 (p_out[1 ]),
+                   .in_real2 (p_out[2 ]),
+                   .in_real3 (p_out[3 ]),
+                   .in_real4 (p_out[4 ]),
+                   .in_real5 (p_out[5 ]),
+                   .in_real6 (p_out[6 ]),
+                   .in_real7 (p_out[7 ]),
+                   .in_real8 (p_out[8 ]),
+                   .in_real9 (p_out[9 ]),
+                   .in_real10(p_out[10]),
+                   .in_real11(p_out[11]),
+                   .in_real12(p_out[12]),
+                   .in_real13(p_out[13]),
+                   .in_real14(p_out[14]),
+                   .in_real15(p_out[15]),
 
                    .in_imag0 (32'd0),
                    .in_imag1 (32'd0),
@@ -329,7 +290,7 @@ always @(posedge clk or posedge rst) begin
         for (i = 0; i < 16; i = i + 1) buffer[i] <= 32'd0;
 
     end	else if (fir_valid) begin
-		buffer_ready   <= (ctr == 4'd15)                 ;
+		buffer_ready <= (ctr == 4'd15)                 ;
         ctr          <= (ctr == 4'd15) ? 4'd0 : ctr + 1; 
         buffer[ctr]  <= {
                          {8{fir_d[15]}}, // sign extension of fir_d
@@ -506,38 +467,38 @@ always @(posedge clk or posedge rst) begin
         in_imag [15] <= 32'd05;
     
     end else begin
-        in_real[0 ] <= in_real0 ;
-        in_real[1 ] <= in_real1 ;
-        in_real[2 ] <= in_real2 ;
-        in_real[3 ] <= in_real3 ;
-        in_real[4 ] <= in_real4 ;
-        in_real[5 ] <= in_real5 ;
-        in_real[6 ] <= in_real6 ;
-        in_real[7 ] <= in_real7 ;
-        in_real[8 ] <= in_real8 ;
-        in_real[9 ] <= in_real9 ;
-        in_real[10] <= in_real10;
-        in_real[11] <= in_real11;
-        in_real[12] <= in_real12;
-        in_real[13] <= in_real13;
-        in_real[14] <= in_real14;
-        in_real[15] <= in_real15;
-        in_imag [0 ] = in_imag0 ;
-        in_imag [1 ] = in_imag1 ;
-        in_imag [2 ] = in_imag2 ;
-        in_imag [3 ] = in_imag3 ;
-        in_imag [4 ] = in_imag4 ;
-        in_imag [5 ] = in_imag5 ;
-        in_imag [6 ] = in_imag6 ;
-        in_imag [7 ] = in_imag7 ;
-        in_imag [8 ] = in_imag8 ;
-        in_imag [9 ] = in_imag9 ;
-        in_imag [10] = in_imag10;
-        in_imag [11] = in_imag11;
-        in_imag [12] = in_imag12;
-        in_imag [13] = in_imag13;
-        in_imag [14] = in_imag14;
-        in_imag [15] = in_imag15;
+        in_real [0 ] <= in_real0 ;
+        in_real [1 ] <= in_real1 ;
+        in_real [2 ] <= in_real2 ;
+        in_real [3 ] <= in_real3 ;
+        in_real [4 ] <= in_real4 ;
+        in_real [5 ] <= in_real5 ;
+        in_real [6 ] <= in_real6 ;
+        in_real [7 ] <= in_real7 ;
+        in_real [8 ] <= in_real8 ;
+        in_real [9 ] <= in_real9 ;
+        in_real [10] <= in_real10;
+        in_real [11] <= in_real11;
+        in_real [12] <= in_real12;
+        in_real [13] <= in_real13;
+        in_real [14] <= in_real14;
+        in_real [15] <= in_real15;
+        in_imag [0 ] <= in_imag0 ;
+        in_imag [1 ] <= in_imag1 ;
+        in_imag [2 ] <= in_imag2 ;
+        in_imag [3 ] <= in_imag3 ;
+        in_imag [4 ] <= in_imag4 ;
+        in_imag [5 ] <= in_imag5 ;
+        in_imag [6 ] <= in_imag6 ;
+        in_imag [7 ] <= in_imag7 ;
+        in_imag [8 ] <= in_imag8 ;
+        in_imag [9 ] <= in_imag9 ;
+        in_imag [10] <= in_imag10;
+        in_imag [11] <= in_imag11;
+        in_imag [12] <= in_imag12;
+        in_imag [13] <= in_imag13;
+        in_imag [14] <= in_imag14;
+        in_imag [15] <= in_imag15;
     end
 end
 
@@ -568,8 +529,7 @@ initial begin
 end
                        
 parameter [2:0] IDLE   = 3'd0,
-                LOAD1  = 3'd5,
-                LOAD2  = 3'd6,
+                LOAD  = 3'd5,
                 STAGE1 = 3'd1,
                 STAGE2 = 3'd2,
                 STAGE3 = 3'd3,
@@ -796,7 +756,7 @@ always @(posedge clk or posedge rst) begin
         ping_pong_switcher <= 1;
     end else begin
         case (curr_state)
-            IDLE, LOAD1, LOAD2 : begin
+            IDLE, LOAD : begin
                 ping_pong_switcher <= 1;
                 for (o = 0; o < 16; o = o + 1) begin
                     buf1_real[o] <= in_real[o];
@@ -868,10 +828,8 @@ assign out_imag15 = buf1_imag[15][23:8];
 always @(*) begin
 	case(curr_state)
 		IDLE   : 
-			next_state = (buffer_ready) ? LOAD1 : IDLE;
-        LOAD1  : 
-            next_state = LOAD2;
-        LOAD2   :
+			next_state = (buffer_ready) ? LOAD : IDLE;
+        LOAD  : 
             next_state = STAGE1;
         STAGE1 : 
 			next_state = STAGE2;
