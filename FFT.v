@@ -36,6 +36,7 @@ reg         fft_out_flag;           // 0 = real, 1 = imag
 reg  [15:0] fft_d        [0:15]; 
 reg         fft_out_ready_d1;
 reg         fft_out_ready_d2;
+parameter data_width = 16; // calculating data width
 
 // s2p's buffer output are stored in reg
 // , it's safe to connect directly into fft_core by wires
@@ -81,23 +82,6 @@ FFT_CORE FFT_CORE1(.clk(clk),
                    .in_real13(p_out[13]),
                    .in_real14(p_out[14]),
                    .in_real15(p_out[15]),
-
-                   .in_imag0 (32'd0),
-                   .in_imag1 (32'd0),
-                   .in_imag2 (32'd0),
-                   .in_imag3 (32'd0),
-                   .in_imag4 (32'd0),
-                   .in_imag5 (32'd0),
-                   .in_imag6 (32'd0),
-                   .in_imag7 (32'd0),
-                   .in_imag8 (32'd0),
-                   .in_imag9 (32'd0),
-                   .in_imag10(32'd0),
-                   .in_imag11(32'd0),
-                   .in_imag12(32'd0),
-                   .in_imag13(32'd0),
-                   .in_imag14(32'd0),
-                   .in_imag15(32'd0),
 
                    .out_real0 (fft_out_real[0 ]),
                    .out_real1 (fft_out_real[1 ]),
@@ -368,23 +352,6 @@ module FFT_CORE(
     input  [15:0] in_real13,
     input  [15:0] in_real14,
     input  [15:0] in_real15,
-    // inp ut  [31:0] in_imag [0:15],
-    input  [31:0] in_imag0 ,
-    input  [31:0] in_imag1 ,
-    input  [31:0] in_imag2 ,
-    input  [31:0] in_imag3 ,
-    input  [31:0] in_imag4 ,
-    input  [31:0] in_imag5 ,
-    input  [31:0] in_imag6 ,
-    input  [31:0] in_imag7 ,
-    input  [31:0] in_imag8 ,
-    input  [31:0] in_imag9 ,
-    input  [31:0] in_imag10,
-    input  [31:0] in_imag11,
-    input  [31:0] in_imag12,
-    input  [31:0] in_imag13,
-    input  [31:0] in_imag14,
-    input  [31:0] in_imag15,
     // output [15:0] out_real[0:15],
     output [15:0] out_real0,
     output [15:0] out_real1,
@@ -422,33 +389,6 @@ module FFT_CORE(
     output        done          
 );
 
-
-
-
-// // === Twiddle Factor ===
-// reg signed [15:0] w_real [0:7];
-// initial begin
-//     w_real[0] = 32'sh0100;
-//     w_real[1] = 32'sh00EC;
-//     w_real[2] = 32'sh00B5;
-//     w_real[3] = 32'sh0061;
-//     w_real[4] = 32'sh0000;
-//     w_real[5] = 32'shFF9E;
-//     w_real[6] = 32'shFF4A;
-//     w_real[7] = 32'shFF13;
-// end
-
-// reg signed [15:0] w_imag [0:7];
-// initial begin
-//     w_imag[0] = 32'sh0000;
-//     w_imag[1] = 32'shFF9E;
-//     w_imag[2] = 32'shFF4A;
-//     w_imag[3] = 32'shFF13;
-//     w_imag[4] = 32'shFF00;
-//     w_imag[5] = 32'shFF13;
-//     w_imag[6] = 32'shFF4A;
-//     w_imag[7] = 32'shFF9E;
-// end
 // reg signed [31:0] w_real [0:7];
 // initial begin
 //     w_real[0] = 32'sh00010000;
@@ -735,22 +675,22 @@ always @(posedge clk or posedge rst) begin
                 buf1_real [13] <= {{8{in_real13[15]}}, in_real13, 8'b0};
                 buf1_real [14] <= {{8{in_real14[15]}}, in_real14, 8'b0};
                 buf1_real [15] <= {{8{in_real15[15]}}, in_real15, 8'b0};
-                buf1_imag [0 ] <= {{8{in_imag0 [15]}}, in_imag0 , 8'b0};
-                buf1_imag [1 ] <= {{8{in_imag1 [15]}}, in_imag1 , 8'b0};
-                buf1_imag [2 ] <= {{8{in_imag2 [15]}}, in_imag2 , 8'b0};
-                buf1_imag [3 ] <= {{8{in_imag3 [15]}}, in_imag3 , 8'b0};
-                buf1_imag [4 ] <= {{8{in_imag4 [15]}}, in_imag4 , 8'b0};
-                buf1_imag [5 ] <= {{8{in_imag5 [15]}}, in_imag5 , 8'b0};
-                buf1_imag [6 ] <= {{8{in_imag6 [15]}}, in_imag6 , 8'b0};
-                buf1_imag [7 ] <= {{8{in_imag7 [15]}}, in_imag7 , 8'b0};
-                buf1_imag [8 ] <= {{8{in_imag8 [15]}}, in_imag8 , 8'b0};
-                buf1_imag [9 ] <= {{8{in_imag9 [15]}}, in_imag9 , 8'b0};
-                buf1_imag [10] <= {{8{in_imag10[15]}}, in_imag10, 8'b0};
-                buf1_imag [11] <= {{8{in_imag11[15]}}, in_imag11, 8'b0};
-                buf1_imag [12] <= {{8{in_imag12[15]}}, in_imag12, 8'b0};
-                buf1_imag [13] <= {{8{in_imag13[15]}}, in_imag13, 8'b0};
-                buf1_imag [14] <= {{8{in_imag14[15]}}, in_imag14, 8'b0};
-                buf1_imag [15] <= {{8{in_imag15[15]}}, in_imag15, 8'b0};
+                buf1_imag [0 ] <= 32'd0;
+                buf1_imag [1 ] <= 32'd0;
+                buf1_imag [2 ] <= 32'd0;
+                buf1_imag [3 ] <= 32'd0;
+                buf1_imag [4 ] <= 32'd0;
+                buf1_imag [5 ] <= 32'd0;
+                buf1_imag [6 ] <= 32'd0;
+                buf1_imag [7 ] <= 32'd0;
+                buf1_imag [8 ] <= 32'd0;
+                buf1_imag [9 ] <= 32'd0;
+                buf1_imag [10] <= 32'd0;
+                buf1_imag [11] <= 32'd0;
+                buf1_imag [12] <= 32'd0;
+                buf1_imag [13] <= 32'd0;
+                buf1_imag [14] <= 32'd0;
+                buf1_imag [15] <= 32'd0;
                 for (o = 0; o < 16; o = o + 1) begin
                     buf2_real[o] <= 32'd0;
                     buf2_imag[o] <= 32'd0;
