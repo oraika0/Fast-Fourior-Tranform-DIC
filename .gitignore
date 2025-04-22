@@ -1,0 +1,21 @@
+# Quartus / ModelSim build artifacts
+*.sdf
+*.sdo
+*.vo
+*.vcd
+*.mti
+*.wlm
+*.mpf
+*.qpf
+*.qsf
+*.rpt
+*.db
+*.log
+*.wlf
+*.csd
+transcript
+db/
+incremental_db/
+output_files/
+simulation/
+work/

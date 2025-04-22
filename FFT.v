@@ -190,8 +190,6 @@ always @(posedge clk or posedge rst) begin
     if (rst) begin
         fft_out_flag <= 0;
         fft_valid_reg <= 0;
-        fft_out_ready_d1 <= 0;
-        fft_out_ready_d2 <= 0;
     end else if (fft_out_ready | fft_out_ready_d1) begin
         fft_valid_reg <= 1;
         if (!fft_out_flag) begin
@@ -302,22 +300,22 @@ module S2P(
     input      [15:0] fir_d        , 
     input             fir_valid    ,
     output reg        buffer_ready ,
-    output reg [31:0] buffer0      ,
-    output reg [31:0] buffer1      ,
-    output reg [31:0] buffer2      ,
-    output reg [31:0] buffer3      ,
-    output reg [31:0] buffer4      ,
-    output reg [31:0] buffer5      ,
-    output reg [31:0] buffer6      ,
-    output reg [31:0] buffer7      ,
-    output reg [31:0] buffer8      ,
-    output reg [31:0] buffer9      ,
-    output reg [31:0] buffer10     ,
-    output reg [31:0] buffer11     ,
-    output reg [31:0] buffer12     ,
-    output reg [31:0] buffer13     ,
-    output reg [31:0] buffer14     ,
-    output reg [31:0] buffer15
+    output     [31:0] buffer0      ,
+    output     [31:0] buffer1      ,
+    output     [31:0] buffer2      ,
+    output     [31:0] buffer3      ,
+    output     [31:0] buffer4      ,
+    output     [31:0] buffer5      ,
+    output     [31:0] buffer6      ,
+    output     [31:0] buffer7      ,
+    output     [31:0] buffer8      ,
+    output     [31:0] buffer9      ,
+    output     [31:0] buffer10     ,
+    output     [31:0] buffer11     ,
+    output     [31:0] buffer12     ,
+    output     [31:0] buffer13     ,
+    output     [31:0] buffer14     ,
+    output     [31:0] buffer15
 );
 
 integer   i         ;
