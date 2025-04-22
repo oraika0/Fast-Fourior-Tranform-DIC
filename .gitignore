@@ -16,6 +16,7 @@
 *.bak
 *.vstf
 transcript
+wlftcsqr1i
 db/
 incremental_db/
 output_files/
