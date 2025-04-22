@@ -470,11 +470,11 @@ reg [31:0] buf2_real[0:15], buf2_imag[0:15];
 // Wire based on curr_state
 assign done = (curr_state == DONE) ? 1 : 0;
 
+reg ping_pong_switcher;  //using lyr_a => 1
 // === Index Pair & Twiddle Index Lookup ===
 // fft layer order index
 reg [3:0] odr_a_idx[0:7], odr_b_idx[0:7];
 reg [2:0] twiddle_idx[0:7];
-reg ping_pong_switcher;  //using lyr_a => 1
 
 // fft layer order assignment
 always@(*)begin
