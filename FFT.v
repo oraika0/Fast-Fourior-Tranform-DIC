@@ -429,79 +429,7 @@ module FFT_CORE(
     output        done          
 );
 
-reg [31:0] in_real [0:15];
-reg [31:0] in_imag [0:15];
 
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
-        in_real [0 ] <= 32'd0;
-        in_real [1 ] <= 32'd0;
-        in_real [2 ] <= 32'd0;
-        in_real [3 ] <= 32'd0;
-        in_real [4 ] <= 32'd0;
-        in_real [5 ] <= 32'd0;
-        in_real [6 ] <= 32'd0;
-        in_real [7 ] <= 32'd0;
-        in_real [8 ] <= 32'd0;
-        in_real [9 ] <= 32'd0;
-        in_real [10] <= 32'd0;
-        in_real [11] <= 32'd0;
-        in_real [12] <= 32'd0;
-        in_real [13] <= 32'd0;
-        in_real [14] <= 32'd0;
-        in_real [15] <= 32'd0;
-        in_imag [0 ] <= 32'd0;
-        in_imag [1 ] <= 32'd0;
-        in_imag [2 ] <= 32'd0;
-        in_imag [3 ] <= 32'd0;
-        in_imag [4 ] <= 32'd0;
-        in_imag [5 ] <= 32'd0;
-        in_imag [6 ] <= 32'd0;
-        in_imag [7 ] <= 32'd0;
-        in_imag [8 ] <= 32'd0;
-        in_imag [9 ] <= 32'd0;
-        in_imag [10] <= 32'd0;
-        in_imag [11] <= 32'd0;
-        in_imag [12] <= 32'd0;
-        in_imag [13] <= 32'd0;
-        in_imag [14] <= 32'd0;
-        in_imag [15] <= 32'd0;
-    
-    end else begin
-        in_real [0 ] <= in_real0 ;
-        in_real [1 ] <= in_real1 ;
-        in_real [2 ] <= in_real2 ;
-        in_real [3 ] <= in_real3 ;
-        in_real [4 ] <= in_real4 ;
-        in_real [5 ] <= in_real5 ;
-        in_real [6 ] <= in_real6 ;
-        in_real [7 ] <= in_real7 ;
-        in_real [8 ] <= in_real8 ;
-        in_real [9 ] <= in_real9 ;
-        in_real [10] <= in_real10;
-        in_real [11] <= in_real11;
-        in_real [12] <= in_real12;
-        in_real [13] <= in_real13;
-        in_real [14] <= in_real14;
-        in_real [15] <= in_real15;
-        in_imag [0 ] <= in_imag0 ;
-        in_imag [1 ] <= in_imag1 ;
-        in_imag [2 ] <= in_imag2 ;
-        in_imag [3 ] <= in_imag3 ;
-        in_imag [4 ] <= in_imag4 ;
-        in_imag [5 ] <= in_imag5 ;
-        in_imag [6 ] <= in_imag6 ;
-        in_imag [7 ] <= in_imag7 ;
-        in_imag [8 ] <= in_imag8 ;
-        in_imag [9 ] <= in_imag9 ;
-        in_imag [10] <= in_imag10;
-        in_imag [11] <= in_imag11;
-        in_imag [12] <= in_imag12;
-        in_imag [13] <= in_imag13;
-        in_imag [14] <= in_imag14;
-        in_imag [15] <= in_imag15;
-    end
-end
 
 // === Twiddle Factor ===
 reg signed [31:0] w_real [0:7];
@@ -517,7 +445,6 @@ initial begin
 end
 
 reg signed [31:0] w_imag [0:7];
-
 initial begin
     w_imag[0] = 32'sh00000000;
     w_imag[1] = 32'shFFFF9E09;
@@ -530,7 +457,6 @@ initial begin
 end
                        
 parameter [2:0] IDLE   = 3'd0,
-                LOAD  = 3'd5,
                 STAGE1 = 3'd1,
                 STAGE2 = 3'd2,
                 STAGE3 = 3'd3,
@@ -546,7 +472,6 @@ assign done = (curr_state == DONE) ? 1 : 0;
 
 // === Index Pair & Twiddle Index Lookup ===
 // fft layer order index
-//twiddle_idx 15 => 1 (no coefficient)
 reg [3:0] odr_a_idx[0:7], odr_b_idx[0:7];
 reg [2:0] twiddle_idx[0:7];
 reg ping_pong_switcher;  //using lyr_a => 1
@@ -730,12 +655,7 @@ generate
 endgenerate
 
 
-//  wire ording logic.... 
- //  correct assign 
- //  u_bf1 : 0 0 8 8 
- //  u_bf2 : 1 1 9 9 
- //  ... 
- //  u_bf8 : 7 7 15 15 
+//  wire ording logic
 genvar k;
 generate
     //  for 8 butterfly units
@@ -759,25 +679,44 @@ always @(posedge clk or posedge rst) begin
         case (curr_state)
             IDLE : begin
                 ping_pong_switcher <= 1;
+                buf1_real [0 ] <= in_real0 ;
+                buf1_real [1 ] <= in_real1 ;
+                buf1_real [2 ] <= in_real2 ;
+                buf1_real [3 ] <= in_real3 ;
+                buf1_real [4 ] <= in_real4 ;
+                buf1_real [5 ] <= in_real5 ;
+                buf1_real [6 ] <= in_real6 ;
+                buf1_real [7 ] <= in_real7 ;
+                buf1_real [8 ] <= in_real8 ;
+                buf1_real [9 ] <= in_real9 ;
+                buf1_real [10] <= in_real10;
+                buf1_real [11] <= in_real11;
+                buf1_real [12] <= in_real12;
+                buf1_real [13] <= in_real13;
+                buf1_real [14] <= in_real14;
+                buf1_real [15] <= in_real15;
+                buf1_imag [0 ] <= in_imag0 ;
+                buf1_imag [1 ] <= in_imag1 ;
+                buf1_imag [2 ] <= in_imag2 ;
+                buf1_imag [3 ] <= in_imag3 ;
+                buf1_imag [4 ] <= in_imag4 ;
+                buf1_imag [5 ] <= in_imag5 ;
+                buf1_imag [6 ] <= in_imag6 ;
+                buf1_imag [7 ] <= in_imag7 ;
+                buf1_imag [8 ] <= in_imag8 ;
+                buf1_imag [9 ] <= in_imag9 ;
+                buf1_imag [10] <= in_imag10;
+                buf1_imag [11] <= in_imag11;
+                buf1_imag [12] <= in_imag12;
+                buf1_imag [13] <= in_imag13;
+                buf1_imag [14] <= in_imag14;
+                buf1_imag [15] <= in_imag15;
                 for (o = 0; o < 16; o = o + 1) begin
-                    buf1_real[o] <= 32'd0;
-                    buf1_imag[o] <= 32'd0;
-                    buf2_real[o] <= 32'd0;
-                    buf2_imag[o] <= 32'd0;
-                end
-            end 
-            LOAD : begin
-                ping_pong_switcher <= 1;
-                for (o = 0; o < 16; o = o + 1) begin
-                    buf1_real[o] <= in_real[o];
-                    buf1_imag[o] <= in_imag[o];
                     buf2_real[o] <= 32'd0;
                     buf2_imag[o] <= 32'd0;
                 end
             end 
             //  checking corrctness
-            //  for the first u_bf： (input 0088)
-            // lyr_in_a_real[0]、lyr_in_a_real[0]、lyr_in_a_real[0]、lyr_in_a_real should be assigned to buf2_real[0]、buf2_imag[0]、buf2_real[8]、buf2_imag[8]
             STAGE1, STAGE3 : begin
                 for (l = 0; l < 8; l = l + 1) begin
                     ping_pong_switcher <= ~ping_pong_switcher;
@@ -840,9 +779,7 @@ assign out_imag15 = buf1_imag[15][23:8];
 always @(*) begin
 	case(curr_state)
 		IDLE   : 
-			next_state = (buffer_ready) ? LOAD : IDLE;
-        LOAD  : 
-            next_state = STAGE1;
+			next_state = (buffer_ready) ? STAGE1 : IDLE;
         STAGE1 : 
 			next_state = STAGE2;
 		STAGE2 : 
